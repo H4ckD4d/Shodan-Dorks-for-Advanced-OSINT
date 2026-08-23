@@ -25,6 +25,8 @@ This project follows Semantic Versioning for tagged releases.
 - Automatic Markdown branding synchronization through `scripts/apply_brand_signature.py`.
 - `h4ckd4d Branding Validation` CI to enforce the owner signature in human-facing documentation.
 - Branded Markdown report generation with the canonical Chris Cruz | h4ckd4d signature.
+- `docs/child-protection-mission.md` to formalize the independent child-protection and public-awareness pillar inspired by rifleman.us.
+- `docs/visual-identity.md` defining the protection + intelligence visual system, hero-banner direction, graphic language, and brand architecture.
 
 ### Changed
 
@@ -35,10 +37,14 @@ This project follows Semantic Versioning for tagged releases.
 - Strengthened visible ownership attribution to **Chris Cruz | h4ckd4d** throughout project documentation.
 - Expanded `AUTHOR.md` and `CREDITS.md` into official project-identity documents.
 - Standardized the project tagline as *"Protect. Detect. Defend."*
+- Integrated the strongest safe themes from rifleman.us into the project identity: child protection, prevention, responsible OSINT, digital-evidence awareness, threat intelligence, and family safety.
+- Added an explicit independence statement to avoid implying government, police, military, intelligence-agency, or law-enforcement affiliation.
+- Extended `BRANDING.md` with the rifleman.us / Project h4ckd4d / Shodan-Dorks brand architecture and visual rules.
 
 ### Security
 
 - Added explicit authorized-use boundaries and responsible-disclosure guidance.
+- Explicitly excluded weapon, explosive, tactical-combat, government-seal, and official-agency visual motifs from the cybersecurity project identity.
 
 ## [1.0.0-rc.1] - 2026-08-23
 
