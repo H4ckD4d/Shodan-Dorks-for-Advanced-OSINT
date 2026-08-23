@@ -97,3 +97,16 @@ JSON schemas are intentionally vendor-neutral. Shodan is one telemetry source, n
 ---
 
 **Shodan Dorks for Advanced OSINT — Internet Exposure Intelligence Framework by h4ckd4d.**
+
+<!-- h4ckd4d-brand-signature:start -->
+---
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->

@@ -77,3 +77,16 @@ net:"203.0.113.0/24" ssl.cert.subject.cn:"example.com"
 ## Interpretation guidance
 
 Certificate metadata can be stale, shared, reissued, or associated with third-party infrastructure. Reconcile observations against your internal certificate inventory, DNS, cloud inventory, and approved hosting providers before assigning ownership.
+
+<!-- h4ckd4d-brand-signature:start -->
+---
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->

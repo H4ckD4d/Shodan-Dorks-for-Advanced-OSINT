@@ -63,3 +63,16 @@ Do not validate a candidate by authenticating to or probing an unknown system. V
 ---
 
 **Shodan Dorks for Advanced OSINT — created and maintained by h4ckd4d.**
+
+<!-- h4ckd4d-brand-signature:start -->
+---
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->

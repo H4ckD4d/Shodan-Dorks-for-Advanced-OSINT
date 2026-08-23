@@ -61,3 +61,16 @@ External contributions may be credited through Git history, pull requests, relea
 
 **h4ckd4d**  
 Cybersecurity · Cyber Intelligence · OSINT · Red Team · Infrastructure · Automation · Defensive Security
+
+<!-- h4ckd4d-brand-signature:start -->
+---
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->

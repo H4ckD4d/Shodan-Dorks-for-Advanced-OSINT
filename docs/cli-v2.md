@@ -76,3 +76,16 @@ The baseline engine is deterministic. It does not claim that an unexpected asset
 ---
 
 **h4ckd4d-osint — Internet Exposure Intelligence tooling by h4ckd4d.**
+
+<!-- h4ckd4d-brand-signature:start -->
+---
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->
