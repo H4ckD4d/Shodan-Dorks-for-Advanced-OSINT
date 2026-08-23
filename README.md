@@ -2,37 +2,45 @@
 
 [![Documentation Quality](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/docs-quality.yml/badge.svg)](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/docs-quality.yml)
 [![Shodan Filter Validation](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/filter-validation.yml/badge.svg)](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/filter-validation.yml)
+[![Framework Validation](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/framework-validation.yml/badge.svg)](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/framework-validation.yml)
+[![Intelligence Engineering](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/intelligence-engineering.yml/badge.svg)](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/intelligence-engineering.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Framework](https://img.shields.io/badge/framework-Internet%20Exposure%20Intelligence-blue.svg)](docs/architecture.md)
 
 > **Original creator, project owner, and primary maintainer: h4ckd4d**
 
-**Shodan Dorks for Advanced OSINT** is evolving into a defensive **Internet Exposure Intelligence**, **External Attack Surface Management (EASM)**, **OSINT**, and **Cyber Threat Intelligence (CTI)** framework for authorized environments.
+**Shodan Dorks for Advanced OSINT** is a defensive **Internet Exposure Intelligence**, **External Attack Surface Management (EASM)**, **OSINT**, and **Cyber Threat Intelligence (CTI)** framework for authorized environments.
 
-The project is not designed as a collection of exploitation recipes. Its purpose is to help analysts move from raw public Internet telemetry to defensible security intelligence through explicit scope, attribution, enrichment, classification, prioritization, validation, and reporting.
+The project has evolved beyond a list of search queries. It now provides a structured intelligence pipeline for transforming public Internet telemetry and approved inventory data into defensible, normalized, analyst-reviewed security intelligence.
 
 > **Authorized use only:** Use this project only for systems you own, administer, or are explicitly authorized to assess. Public visibility does not grant permission to access, authenticate to, modify, exploit, disrupt, or test a third-party system.
 
-## Framework model
+## Intelligence lifecycle
 
 ```text
 Authorized Scope
       ↓
-Discover
+Discover Observations
       ↓
-Attribute
+Attribute Ownership
       ↓
-Enrich
+Normalize Assets
       ↓
-Classify
+Build Relationships
       ↓
-Analyze Exposure
+Enrich Context
       ↓
-Prioritize Risk
+Compare Baseline
       ↓
-Validate
+Classify Exposure
       ↓
-Report / Baseline
+Prioritize Review
+      ↓
+Validate Internally
+      ↓
+Generate Findings
+      ↓
+Report / Track Drift
 ```
 
 The core analytical rule is:
@@ -41,165 +49,184 @@ The core analytical rule is:
 
 Each transition requires evidence.
 
-## What this project provides
+## v2 Intelligence Engineering
 
-- Curated Shodan filter and query reference.
-- Defensive query collections.
-- External attack-surface analyst playbooks.
-- Asset-attribution and ownership-confidence methodology.
-- Exposure taxonomy and risk-prioritization guidance.
-- Machine-readable scope and catalog structures.
-- Offline validation tooling.
-- Scope-aware query generation.
-- Documentation and CI standards for reproducible research.
+The v2 data layer introduces vendor-neutral normalized objects for Internet exposure analysis:
 
-## Quick start
+- **Asset** — IP, CIDR, ASN, domain, hostname, certificate, service, or cloud resource.
+- **Finding** — analyst-reviewed exposure condition with evidence, confidence, status, and severity.
+- **Baseline** — approved expected assets and services used for drift comparison.
+- **Relationship graph** — evidence-backed links among organizations, domains, certificates, IPs, networks, and services.
 
-Shodan filters use the form:
+Schemas:
 
-```text
-filter:value
-```
+- [`schemas/asset.schema.json`](schemas/asset.schema.json)
+- [`schemas/finding.schema.json`](schemas/finding.schema.json)
+- [`schemas/baseline.schema.json`](schemas/baseline.schema.json)
+- [`schemas/scope.schema.json`](schemas/scope.schema.json)
 
-Examples using documentation-safe values:
+Methodology:
 
-```text
-org:"Example Organization"
-net:"203.0.113.0/24"
-asn:"AS64500"
-hostname:"example.com"
-org:"Example Organization" port:443 has_ssl:true
-```
+- [`docs/data-model.md`](docs/data-model.md)
+- [`intelligence/relationship-graph.md`](intelligence/relationship-graph.md)
+- [`intelligence/confidence-engine.md`](intelligence/confidence-engine.md)
+- [`intelligence/risk-prioritization.md`](intelligence/risk-prioritization.md)
 
-A query is only the beginning. Every result should be interpreted in context and validated against ownership, freshness, service identity, and authoritative inventory.
+## h4ckd4d-osint CLI
 
-## Scope-aware query builder
+The unified CLI operates offline and does not contact Shodan or external targets.
 
-The project includes an offline query-template generator that requires explicit authorization in the local scope file.
-
-Example scope:
-
-```json
-{
-  "organization": "Example Organization",
-  "authorization": {
-    "confirmed": true,
-    "reference": "INTERNAL-AUTH-REFERENCE"
-  },
-  "scope": {
-    "domains": ["example.com"],
-    "cidrs": ["203.0.113.0/24"],
-    "asns": ["AS64500"],
-    "organizations": ["Example Organization"]
-  }
-}
-```
-
-Generate reviewable query templates:
+Validate an authorized scope:
 
 ```bash
-python scripts/scope_query_builder.py examples/authorized-scope.json
+python scripts/h4ckd4d_osint.py scope examples/authorized-scope.json
 ```
 
-The script does **not** contact Shodan and does **not** execute searches.
+Generate scope-bound query templates:
+
+```bash
+python scripts/h4ckd4d_osint.py queries examples/authorized-scope.json
+```
+
+Compare an expected baseline with normalized observations:
+
+```bash
+python scripts/h4ckd4d_osint.py baseline \
+  examples/expected-baseline.json \
+  examples/observed-assets.json \
+  --output comparison.json
+```
+
+Generate an analyst-readable Markdown report:
+
+```bash
+python scripts/h4ckd4d_osint.py report comparison.json --output report.md
+```
+
+Full guide: [`docs/cli-v2.md`](docs/cli-v2.md).
+
+## What this project provides
+
+- Curated and validated Shodan filter reference.
+- Defensive query collections.
+- Scope-aware offline query generation.
+- External attack-surface analyst playbooks.
+- Asset-attribution methodology.
+- Ownership-confidence model.
+- Normalized asset and finding schemas.
+- Expected-versus-observed baseline comparison.
+- Relationship-graph methodology.
+- Exposure taxonomy and risk-prioritization guidance.
+- Markdown reporting pipeline.
+- Machine-readable scope, catalog, baseline, asset, and finding structures.
+- CI validation for documentation, Shodan filters, framework integrity, schemas, fixtures, and the v2 intelligence pipeline.
 
 ## Professional analyst workflow
 
 ### 1. Define authorization and scope
 
-Establish domains, CIDRs, ASNs, organizations, and constraints that are explicitly approved.
+Establish domains, CIDRs, ASNs, organizations, constraints, and an authorization reference.
 
 ### 2. Discover observations
 
-Use public telemetry to identify candidate Internet-facing assets and services.
+Use approved public telemetry and internal inventories to identify candidate Internet-facing assets and services.
 
 ### 3. Attribute ownership
 
-Correlate candidates with authoritative DNS, internal inventory, cloud resources, RDAP/WHOIS, certificates, and known infrastructure relationships.
+Correlate candidates with authoritative DNS, owned CIDRs/ASNs, internal inventory, cloud control planes, certificate relationships, and other independent evidence.
 
-### 4. Classify exposure
+### 4. Normalize
 
-Group services by function such as web, remote administration, databases, identity, network/security appliances, cloud, DevOps, monitoring, messaging, or IoT/OT.
+Represent observations through the vendor-neutral asset model so different data sources can be compared consistently.
 
-### 5. Prioritize
+### 5. Build relationships
 
-Use business criticality, service sensitivity, exposure context, telemetry freshness, and ownership confidence to prioritize analyst review.
+Model domain → IP → service → certificate → ASN relationships and assign confidence to evidence-backed edges.
 
-### 6. Validate internally
+### 6. Compare baseline
 
-Confirm findings using systems and administrative control planes that the organization is authorized to operate.
+Identify expected assets, missing expected assets, unexpected services, and unknown potentially related assets.
 
-### 7. Report and baseline
+### 7. Prioritize
 
-Record evidence, confidence, remediation ownership, and expected-vs-observed state.
+Use business criticality, service sensitivity, exposure context, telemetry freshness, ownership confidence, and analyst validation status.
+
+### 8. Validate internally
+
+Confirm observations using administrative systems and control planes the organization is authorized to operate.
+
+### 9. Report
+
+Create findings only after sufficient validation, preserving evidence, confidence, timestamps, and analyst rationale.
 
 ## Repository map
 
 ### Framework and methodology
 
-- [`ROADMAP.md`](ROADMAP.md) — long-term development plan.
-- [`docs/architecture.md`](docs/architecture.md) — Internet Exposure Intelligence architecture.
-- [`docs/asset-attribution.md`](docs/asset-attribution.md) — ownership evidence and confidence model.
-- [`docs/query-standard.md`](docs/query-standard.md) — professional query documentation standard.
+- [`ROADMAP.md`](ROADMAP.md) — development roadmap.
+- [`docs/architecture.md`](docs/architecture.md) — architecture and trust boundaries.
+- [`docs/data-model.md`](docs/data-model.md) — normalized intelligence data model.
+- [`docs/asset-attribution.md`](docs/asset-attribution.md) — ownership evidence and attribution.
+- [`docs/query-standard.md`](docs/query-standard.md) — professional query-documentation standard.
 - [`docs/osint-methodology.md`](docs/osint-methodology.md) — defensive OSINT methodology.
-- [`intelligence/risk-prioritization.md`](intelligence/risk-prioritization.md) — exposure risk-prioritization model.
+- [`docs/cli-v2.md`](docs/cli-v2.md) — unified offline CLI guide.
+- [`intelligence/confidence-engine.md`](intelligence/confidence-engine.md) — evidence-confidence model.
+- [`intelligence/relationship-graph.md`](intelligence/relationship-graph.md) — asset relationship graph.
+- [`intelligence/risk-prioritization.md`](intelligence/risk-prioritization.md) — exposure prioritization.
 
 ### Analyst playbooks
 
-- [`playbooks/external-attack-surface-baseline.md`](playbooks/external-attack-surface-baseline.md) — establish and maintain an external baseline.
-- [`playbooks/shadow-it-review.md`](playbooks/shadow-it-review.md) — investigate candidate undocumented assets.
-- [`playbooks/certificate-pivoting.md`](playbooks/certificate-pivoting.md) — use certificate metadata as relationship evidence.
+- [`playbooks/external-attack-surface-baseline.md`](playbooks/external-attack-surface-baseline.md)
+- [`playbooks/shadow-it-review.md`](playbooks/shadow-it-review.md)
+- [`playbooks/certificate-pivoting.md`](playbooks/certificate-pivoting.md)
 
 ### Shodan reference
 
-- [`CHEATSHEET.md`](CHEATSHEET.md) — compact reference.
-- [`docs/getting-started.md`](docs/getting-started.md) — search fundamentals.
-- [`docs/filters-reference.md`](docs/filters-reference.md) — curated official-filter reference.
-- [`docs/cli-api.md`](docs/cli-api.md) — defensive CLI/API patterns.
-- [`dorks/network.md`](dorks/network.md) — network and service discovery.
-- [`dorks/web.md`](dorks/web.md) — web and HTTP metadata.
-- [`dorks/ssl-tls.md`](dorks/ssl-tls.md) — TLS/certificate searches.
-- [`dorks/dns-hostnames.md`](dorks/dns-hostnames.md) — hostname/domain pivots.
-- [`dorks/ssh.md`](dorks/ssh.md) — SSH inventory.
-- [`dorks/cloud.md`](dorks/cloud.md) — cloud asset review.
-- [`dorks/databases.md`](dorks/databases.md) — database-service inventory.
-- [`dorks/iot-ics.md`](dorks/iot-ics.md) — conservative IoT/ICS exposure review.
+- [`CHEATSHEET.md`](CHEATSHEET.md)
+- [`docs/getting-started.md`](docs/getting-started.md)
+- [`docs/filters-reference.md`](docs/filters-reference.md)
+- [`docs/cli-api.md`](docs/cli-api.md)
+- [`dorks/network.md`](dorks/network.md)
+- [`dorks/web.md`](dorks/web.md)
+- [`dorks/ssl-tls.md`](dorks/ssl-tls.md)
+- [`dorks/dns-hostnames.md`](dorks/dns-hostnames.md)
+- [`dorks/ssh.md`](dorks/ssh.md)
+- [`dorks/cloud.md`](dorks/cloud.md)
+- [`dorks/databases.md`](dorks/databases.md)
+- [`dorks/iot-ics.md`](dorks/iot-ics.md)
 
 ### Structured data and tooling
 
-- [`schemas/scope.schema.json`](schemas/scope.schema.json) — authorized-scope schema.
-- [`catalog/index.json`](catalog/index.json) — project content catalog.
-- [`catalog/exposure-categories.json`](catalog/exposure-categories.json) — exposure taxonomy.
-- [`config/official-filters.txt`](config/official-filters.txt) — curated Shodan filter allowlist.
-- [`scripts/validate_filters.py`](scripts/validate_filters.py) — offline filter validation.
-- [`scripts/scope_query_builder.py`](scripts/scope_query_builder.py) — scope-aware query-template generator.
-- [`examples/authorized-scope.json`](examples/authorized-scope.json) — documentation-only scope example.
+- [`catalog/index.json`](catalog/index.json)
+- [`catalog/exposure-categories.json`](catalog/exposure-categories.json)
+- [`config/official-filters.txt`](config/official-filters.txt)
+- [`scripts/validate_filters.py`](scripts/validate_filters.py)
+- [`scripts/validate_framework.py`](scripts/validate_framework.py)
+- [`scripts/scope_query_builder.py`](scripts/scope_query_builder.py)
+- [`scripts/baseline_compare.py`](scripts/baseline_compare.py)
+- [`scripts/generate_report.py`](scripts/generate_report.py)
+- [`scripts/h4ckd4d_osint.py`](scripts/h4ckd4d_osint.py)
+
+### Documentation-safe fixtures
+
+- [`examples/authorized-scope.json`](examples/authorized-scope.json)
+- [`examples/expected-baseline.json`](examples/expected-baseline.json)
+- [`examples/observed-assets.json`](examples/observed-assets.json)
+- [`examples/example-finding.json`](examples/example-finding.json)
+
+All example infrastructure uses documentation-safe values and is intended for local testing and learning.
 
 ## Ownership confidence
 
 | Confidence | Interpretation |
 | --- | --- |
-| High | Supported by authoritative inventory, owned CIDR/ASN, cloud inventory, or authoritative DNS |
-| Medium | Strong supporting relationship requiring confirmation |
-| Low | Candidate based on weak public relationship evidence |
-| Rejected | Confirmed unrelated or outside scope |
+| 90–100 | Confirmed ownership |
+| 70–89 | Probable ownership |
+| 40–69 | Possible relationship requiring validation |
+| 1–39 | Weak / unverified relationship |
+| 0 | No supporting evidence or excluded |
 
 **Relationship is not ownership. Ownership is not authorization.**
-
-## Exposure categories
-
-The framework organizes review around security context rather than ports alone:
-
-- Web Infrastructure
-- Remote Administration
-- Database Services
-- Identity and Authentication
-- Network and Security Appliances
-- Cloud Infrastructure
-- Development and DevOps Infrastructure
-- Monitoring and Management
-- Messaging and Mail Infrastructure
-- IoT and OT/ICS
 
 ## Query documentation standard
 
@@ -214,7 +241,7 @@ Every professional query should explain:
 7. False-positive considerations.
 8. Related analytical pivots.
 
-This makes the repository useful as analyst training material, not just a command list.
+This makes the repository analyst training material rather than a command dump.
 
 ## Validation policy
 
@@ -244,7 +271,7 @@ See [`AUTHOR.md`](AUTHOR.md) for the expanded profile.
 
 ## Contributing
 
-Read [`CONTRIBUTING.md`](CONTRIBUTING.md). Contributions should preserve defensive scope, evidence standards, and project attribution.
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md). Contributions should preserve defensive scope, evidence standards, data-model consistency, and project attribution.
 
 ## Security and responsible use
 
