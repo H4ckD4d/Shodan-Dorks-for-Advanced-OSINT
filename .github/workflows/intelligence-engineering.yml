@@ -1,0 +1,90 @@
+name: Intelligence Engineering Validation
+
+# Project owner / original creator / primary maintainer: h4ckd4d
+
+on:
+  push:
+    branches: [main, v2-intelligence-engineering]
+    paths:
+      - "schemas/**"
+      - "examples/**"
+      - "scripts/baseline_compare.py"
+      - "scripts/generate_report.py"
+      - "scripts/h4ckd4d_osint.py"
+      - ".github/workflows/intelligence-engineering.yml"
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-v2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install schema validator
+        run: python -m pip install --disable-pip-version-check jsonschema
+
+      - name: Validate JSON fixtures
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from jsonschema import Draft202012Validator
+
+          root = Path('.')
+          cases = [
+              ('schemas/scope.schema.json', 'examples/authorized-scope.json'),
+              ('schemas/baseline.schema.json', 'examples/expected-baseline.json'),
+          ]
+          for schema_path, data_path in cases:
+              schema = json.loads((root / schema_path).read_text())
+              data = json.loads((root / data_path).read_text())
+              Draft202012Validator(schema).validate(data)
+              print(f'validated {data_path}')
+
+          asset_schema = json.loads((root / 'schemas/asset.schema.json').read_text())
+          assets = json.loads((root / 'examples/observed-assets.json').read_text())
+          validator = Draft202012Validator(asset_schema)
+          for asset in assets:
+              validator.validate(asset)
+          print('validated normalized observed assets')
+          PY
+
+      - name: Validate authorized scope
+        run: python scripts/h4ckd4d_osint.py scope examples/authorized-scope.json
+
+      - name: Generate scoped query templates
+        run: python scripts/h4ckd4d_osint.py queries examples/authorized-scope.json
+
+      - name: Compare expected and observed assets
+        run: python scripts/h4ckd4d_osint.py baseline examples/expected-baseline.json examples/observed-assets.json --output /tmp/comparison.json
+
+      - name: Generate Markdown report
+        run: python scripts/h4ckd4d_osint.py report /tmp/comparison.json --output /tmp/report.md
+
+      - name: Verify comparison summary
+        run: |
+          python - <<'PY'
+          import json
+          data = json.load(open('/tmp/comparison.json'))
+          expected = {
+              'expected_seen': 1,
+              'expected_missing': 1,
+              'unexpected_assets': 1,
+              'unexpected_services': 1,
+          }
+          assert data['summary'] == expected, data['summary']
+          text = open('/tmp/report.md').read()
+          assert 'Internet Exposure Intelligence Report' in text
+          assert 'h4ckd4d' in text
+          print('v2 intelligence pipeline passed')
+          PY
