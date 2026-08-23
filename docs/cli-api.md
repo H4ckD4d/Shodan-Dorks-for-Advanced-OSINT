@@ -1,7 +1,7 @@
 # Shodan CLI and API for Defensive Inventory
 
-> **Project owner:** H4ckD4d  
-> Part of **Shodan Dorks for Advanced OSINT**, created and maintained by **H4ckD4d**.
+> **Project owner:** h4ckd4d  
+> Part of **Shodan Dorks for Advanced OSINT**, created and maintained by **h4ckd4d**.
 
 This page shows conservative patterns for querying Shodan about infrastructure you own, administer, or are explicitly authorized to assess.
 
@@ -78,4 +78,4 @@ Reference reviewed: **August 23, 2026**.
 
 ---
 
-**Original creator and project owner: H4ckD4d**
+**Original creator and project owner: h4ckd4d**
