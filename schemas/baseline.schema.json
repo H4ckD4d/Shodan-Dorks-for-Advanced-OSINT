@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/schemas/baseline.schema.json",
+  "title": "h4ckd4d Expected Exposure Baseline",
+  "description": "Expected Internet-facing asset and service baseline for authorized defensive comparison.",
+  "type": "object",
+  "required": ["organization", "generated_at", "assets"],
+  "properties": {
+    "organization": {"type": "string", "minLength": 1},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["value", "asset_type", "expected"],
+        "properties": {
+          "value": {"type": "string"},
+          "asset_type": {"enum": ["ip", "cidr", "asn", "domain", "hostname"]},
+          "expected": {"type": "boolean"},
+          "criticality": {"enum": ["low", "medium", "high", "critical", "unknown"]},
+          "expected_services": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["port"],
+              "properties": {
+                "port": {"type": "integer", "minimum": 1, "maximum": 65535},
+                "protocol": {"type": "string"},
+                "product": {"type": ["string", "null"]}
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

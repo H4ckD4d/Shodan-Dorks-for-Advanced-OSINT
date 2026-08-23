@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/schemas/asset.schema.json",
+  "title": "h4ckd4d Internet Exposure Asset",
+  "description": "Normalized defensive asset record for authorized EASM/OSINT analysis.",
+  "type": "object",
+  "required": ["asset_id", "asset_type", "value", "ownership", "observations"],
+  "properties": {
+    "asset_id": {"type": "string", "minLength": 1},
+    "asset_type": {"enum": ["ip", "cidr", "asn", "domain", "hostname", "certificate", "service", "cloud_resource"]},
+    "value": {"type": "string", "minLength": 1},
+    "organization": {"type": ["string", "null"]},
+    "environment": {"enum": ["production", "staging", "development", "test", "unknown"]},
+    "criticality": {"enum": ["low", "medium", "high", "critical", "unknown"]},
+    "ownership": {
+      "type": "object",
+      "required": ["confidence", "status", "evidence"],
+      "properties": {
+        "confidence": {"type": "integer", "minimum": 0, "maximum": 100},
+        "status": {"enum": ["confirmed", "probable", "possible", "unverified", "excluded"]},
+        "evidence": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "relationships": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relationship", "target"],
+        "properties": {
+          "relationship": {"enum": ["resolves_to", "belongs_to", "served_by", "certifies", "hosts", "observed_on", "related_to"]},
+          "target": {"type": "string"},
+          "confidence": {"type": "integer", "minimum": 0, "maximum": 100}
+        },
+        "additionalProperties": false
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "observed_at"],
+        "properties": {
+          "source": {"type": "string"},
+          "observed_at": {"type": "string", "format": "date-time"},
+          "summary": {"type": "string"},
+          "freshness_days": {"type": ["integer", "null"], "minimum": 0}
+        },
+        "additionalProperties": false
+      }
+    },
+    "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  },
+  "additionalProperties": false
+}

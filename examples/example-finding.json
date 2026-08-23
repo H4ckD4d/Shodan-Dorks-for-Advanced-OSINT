@@ -1,0 +1,26 @@
+{
+  "finding_id": "finding-example-unexpected-service",
+  "asset_id": "asset-ip-203-0-113-10",
+  "category": "unexpected-service",
+  "title": "Unexpected HTTPS service observed on expected asset",
+  "description": "Documentation fixture showing how an observation can be represented before analyst validation.",
+  "status": "candidate",
+  "confidence": 80,
+  "severity": "medium",
+  "score": 45,
+  "evidence": [
+    "Expected baseline lists TCP/443 only",
+    "Observed normalized asset includes service:8443:https"
+  ],
+  "analyst_notes": "Validate configuration and ownership before escalation.",
+  "validation": {
+    "ownership_confirmed": true,
+    "freshness_confirmed": true,
+    "internally_verified": false
+  },
+  "timestamps": {
+    "first_seen": "2026-08-23T12:10:00Z",
+    "last_seen": "2026-08-23T12:10:00Z",
+    "validated_at": null
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/schemas/finding.schema.json",
+  "title": "h4ckd4d Exposure Finding",
+  "description": "Normalized defensive finding for authorized EASM/OSINT analysis.",
+  "type": "object",
+  "required": ["finding_id", "asset_id", "category", "title", "status", "confidence", "severity", "evidence"],
+  "properties": {
+    "finding_id": {"type": "string", "minLength": 1},
+    "asset_id": {"type": "string", "minLength": 1},
+    "category": {"type": "string", "minLength": 1},
+    "title": {"type": "string", "minLength": 1},
+    "description": {"type": "string"},
+    "status": {"enum": ["observation", "candidate", "validated", "accepted", "remediated", "false_positive"]},
+    "confidence": {"type": "integer", "minimum": 0, "maximum": 100},
+    "severity": {"enum": ["informational", "low", "medium", "high", "critical_review"]},
+    "score": {"type": "integer", "minimum": 0, "maximum": 100},
+    "evidence": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "analyst_notes": {"type": "string"},
+    "validation": {
+      "type": "object",
+      "properties": {
+        "ownership_confirmed": {"type": "boolean"},
+        "freshness_confirmed": {"type": "boolean"},
+        "internally_verified": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "timestamps": {
+      "type": "object",
+      "properties": {
+        "first_seen": {"type": ["string", "null"], "format": "date-time"},
+        "last_seen": {"type": ["string", "null"], "format": "date-time"},
+        "validated_at": {"type": ["string", "null"], "format": "date-time"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

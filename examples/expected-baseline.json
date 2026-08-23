@@ -1,0 +1,22 @@
+{
+  "organization": "Example Organization",
+  "generated_at": "2026-08-23T12:00:00Z",
+  "assets": [
+    {
+      "value": "203.0.113.10",
+      "asset_type": "ip",
+      "expected": true,
+      "criticality": "high",
+      "expected_services": [
+        {"port": 443, "protocol": "https", "product": "Example Web Service"}
+      ]
+    },
+    {
+      "value": "example.com",
+      "asset_type": "domain",
+      "expected": true,
+      "criticality": "high",
+      "expected_services": []
+    }
+  ]
+}
