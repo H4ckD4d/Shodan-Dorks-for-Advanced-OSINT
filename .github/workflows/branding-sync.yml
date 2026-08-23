@@ -1,0 +1,40 @@
+name: h4ckd4d Branding Sync
+
+# Project owner / original creator / primary maintainer: h4ckd4d
+
+on:
+  push:
+    branches: [brand-signature-h4ckd4d]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync-branding:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: brand-signature-h4ckd4d
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Apply canonical project signature
+        run: python scripts/apply_brand_signature.py
+
+      - name: Commit normalized documentation
+        run: |
+          if git diff --quiet; then
+            echo "Branding already synchronized."
+            exit 0
+          fi
+          git config user.name "h4ckd4d"
+          git config user.email "65521295+H4ckD4d@users.noreply.github.com"
+          git add '*.md' '**/*.md'
+          git commit -m "docs: synchronize Chris Cruz | h4ckd4d signature [skip ci]"
+          git push origin HEAD:brand-signature-h4ckd4d
