@@ -1,0 +1,58 @@
+name: Filter correction
+
+description: Report an outdated, incorrect, or undocumented Shodan filter reference.
+title: "[Filter] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping improve **Shodan Dorks for Advanced OSINT**.
+
+        Project owner and primary maintainer: **h4ckd4d**.
+
+  - type: input
+    id: filter
+    attributes:
+      label: Filter or query
+      description: Identify the filter or query that needs correction.
+      placeholder: "example: http.title"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: problem
+    attributes:
+      label: Problem type
+      options:
+        - Incorrect syntax
+        - Outdated filter
+        - Undocumented filter presented as official
+        - Incorrect value format
+        - Broken example
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Validation evidence
+      description: Prefer an official Shodan documentation or API reference.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed
+    attributes:
+      label: Proposed correction
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Responsible-use confirmation
+      options:
+        - label: I am not including credentials, private keys, personal data, or sensitive third-party system details.
+          required: true

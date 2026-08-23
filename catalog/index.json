@@ -1,0 +1,31 @@
+{
+  "project": "Shodan Dorks for Advanced OSINT",
+  "owner": "h4ckd4d",
+  "original_creator": "h4ckd4d",
+  "primary_maintainer": "h4ckd4d",
+  "status": "1.0.0-rc.1",
+  "validation_date": "2026-08-23",
+  "scope": "Defensive and authorized OSINT reference",
+  "collections": [
+    {"id":"network","path":"dorks/network.md","title":"Network and Service Discovery"},
+    {"id":"web","path":"dorks/web.md","title":"Web and HTTP Metadata"},
+    {"id":"ssl-tls","path":"dorks/ssl-tls.md","title":"SSL/TLS and Certificate Intelligence"},
+    {"id":"dns-hostnames","path":"dorks/dns-hostnames.md","title":"DNS and Hostname Discovery"},
+    {"id":"ssh","path":"dorks/ssh.md","title":"SSH Exposure Review"},
+    {"id":"cloud","path":"dorks/cloud.md","title":"Cloud Asset Inventory"},
+    {"id":"databases","path":"dorks/databases.md","title":"Database Service Inventory"},
+    {"id":"iot-ics","path":"dorks/iot-ics.md","title":"IoT and ICS Exposure Review"}
+  ],
+  "documentation": [
+    {"id":"getting-started","path":"docs/getting-started.md"},
+    {"id":"filters","path":"docs/filters-reference.md"},
+    {"id":"methodology","path":"docs/osint-methodology.md"},
+    {"id":"cli-api","path":"docs/cli-api.md"},
+    {"id":"author","path":"AUTHOR.md"}
+  ],
+  "references": {
+    "shodan_api": "https://developer.shodan.io/api",
+    "shodan_filters": "https://trends.shodan.io/search/filters",
+    "shodan_datapedia": "https://datapedia.shodan.io/"
+  }
+}
