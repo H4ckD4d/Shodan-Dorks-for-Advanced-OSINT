@@ -1,6 +1,6 @@
 # Pull Request
 
-**Project owner / original creator / primary maintainer:** H4ckD4d
+**Project owner / original creator / primary maintainer:** h4ckd4d
 
 ## Summary
 
@@ -28,4 +28,4 @@ List primary references used to validate the change.
 
 ## Attribution
 
-Contributions are credited through Git history and the pull request record. Project ownership and original authorship remain attributed to **H4ckD4d** as documented in `CREDITS.md` and `LICENSE`.
+Contributions are credited through Git history and the pull request record. Project ownership and original authorship remain attributed to **h4ckd4d** as documented in `CREDITS.md` and `LICENSE`.
