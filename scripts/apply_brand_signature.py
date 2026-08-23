@@ -40,6 +40,21 @@ MARKER_RE = re.compile(
     flags=re.DOTALL,
 )
 
+OWNER_REPLACEMENTS = {
+    "> **Original creator, project owner, and primary maintainer: h4ckd4d**":
+        "> **Original creator, project owner, and primary maintainer: Chris Cruz | h4ckd4d**",
+    "> **Project owner:** h4ckd4d":
+        "> **Project owner:** Chris Cruz | h4ckd4d",
+    "**Project owner:** h4ckd4d":
+        "**Project owner:** Chris Cruz | h4ckd4d",
+    "**Original creator:** h4ckd4d":
+        "**Original creator:** Chris Cruz | h4ckd4d",
+    "**Primary maintainer:** h4ckd4d":
+        "**Primary maintainer:** Chris Cruz | h4ckd4d",
+    "**h4ckd4d** is the original creator, project owner, and primary maintainer":
+        "**Chris Cruz | h4ckd4d** is the original creator, project owner, and primary maintainer",
+}
+
 
 def markdown_files():
     for path in sorted(ROOT.rglob("*.md")):
@@ -51,8 +66,14 @@ def markdown_files():
 
 
 def normalize(text: str) -> str:
-    # Remove previously managed signature blocks, then append exactly one.
+    # Remove previously managed signature blocks.
     text = MARKER_RE.sub("\n", text).rstrip()
+
+    # Strengthen visible ownership attribution in human-facing copy.
+    for old, new in OWNER_REPLACEMENTS.items():
+        text = text.replace(old, new)
+
+    # Append exactly one canonical managed signature.
     return f"{text}\n\n{SIGNATURE}"
 
 
