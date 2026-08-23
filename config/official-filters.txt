@@ -1,0 +1,53 @@
+# Curated filter allowlist for repository validation.
+# Project owner / original creator / primary maintainer: H4ckD4d
+# Validated against official Shodan documentation on 2026-08-23.
+# This is intentionally curated to filters used by this repository; it is not a promise of exhaustiveness.
+all
+asn
+city
+country
+cpe
+has_ipv6
+has_screenshot
+has_ssl
+has_vuln
+hash
+hostname
+http.component
+http.component_category
+http.favicon.hash
+http.html_hash
+http.robots_hash
+http.securitytxt
+http.status
+http.title
+http.waf
+ip
+isp
+net
+org
+os
+port
+product
+region
+screenshot.label
+ssh.fingerprint
+ssl
+ssl.alpn
+ssl.cert.expired
+ssl.cert.extension
+ssl.cert.fingerprint
+ssl.cert.issuer.cn
+ssl.cert.pubkey.bits
+ssl.cert.serial
+ssl.cert.subject.cn
+ssl.chain_count
+ssl.cipher.bits
+ssl.cipher.name
+ssl.ja3s
+ssl.jarm
+ssl.version
+state
+tag
+version
+vuln
