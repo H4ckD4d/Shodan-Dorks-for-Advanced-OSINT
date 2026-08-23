@@ -1,11 +1,24 @@
 # Shodan Dorks for Advanced OSINT
 
+[![Documentation Quality](https://github.com/H4ckD4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/docs-quality.yml/badge.svg)](https://github.com/H4ckD4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/docs-quality.yml)
+[![Shodan Filter Validation](https://github.com/H4ckD4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/filter-validation.yml/badge.svg)](https://github.com/H4ckD4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/filter-validation.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/status-1.0.0--rc.1-blue.svg)](CHANGELOG.md)
+
 > **Project owner and maintainer:** **H4ckD4d**  
 > Original project by **H4ckD4d**. Please preserve project attribution when redistributing or adapting this repository.
 
 A curated, defensive reference for Shodan search syntax, filters, and OSINT workflows focused on authorized asset discovery, exposure auditing, service identification, and Internet-facing attack-surface awareness.
 
 > **Scope:** Use this repository only on systems you own, administer, or are explicitly authorized to assess. Shodan indexes public Internet telemetry; public visibility does not imply permission to access or test a system.
+
+## Project status
+
+**Current milestone:** `1.0.0-rc.1`  
+**Reference validation:** August 23, 2026  
+**Owner:** H4ckD4d
+
+See [`CHANGELOG.md`](CHANGELOG.md) for release history and [`catalog/index.json`](catalog/index.json) for the machine-readable project catalog.
 
 ## Why this project exists
 
@@ -55,6 +68,7 @@ shodan search 'org:"Example Organization" port:443'
 - [`docs/osint-methodology.md`](docs/osint-methodology.md) — repeatable defensive OSINT methodology.
 - [`docs/cli-api.md`](docs/cli-api.md) — CLI/API usage for authorized inventory and validation.
 - [`CHEATSHEET.md`](CHEATSHEET.md) — compact quick-reference sheet.
+- [`CHANGELOG.md`](CHANGELOG.md) — version history and release milestones.
 
 ### Query collections
 
@@ -70,6 +84,13 @@ shodan search 'org:"Example Organization" port:443'
 ### Defensive examples
 
 - [`examples/asset-discovery.md`](examples/asset-discovery.md) — authorized asset-discovery workflow.
+
+### Automation and machine-readable data
+
+- [`catalog/index.json`](catalog/index.json) — structured catalog of project content.
+- [`config/official-filters.txt`](config/official-filters.txt) — curated filter allowlist used by repository validation.
+- [`scripts/validate_filters.py`](scripts/validate_filters.py) — static validator for documented `filter:value` tokens.
+- [`.github/workflows/filter-validation.yml`](.github/workflows/filter-validation.yml) — CI validation for documented filters.
 
 ## Core filter families
 
@@ -99,6 +120,7 @@ Before adding a new filter to this repository:
 3. Prefer examples scoped to owned or explicitly authorized assets.
 4. Document plan/API limitations when known.
 5. Add the validation date to significant reference updates.
+6. Ensure `python scripts/validate_filters.py` passes.
 
 **Reference validation:** August 23, 2026.
 
