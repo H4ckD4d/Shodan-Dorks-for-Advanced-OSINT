@@ -4,10 +4,11 @@
 Project owner / original creator / primary maintainer: h4ckd4d
 
 The validator scans code examples and inline-code snippets in selected Markdown
-files, then compares `filter:value` tokens against the curated allowlist in
-config/official-filters.txt. Prose is intentionally ignored so labels such as
+files, then compares concrete `filter:value` tokens against the curated allowlist
+in config/official-filters.txt. Prose is intentionally ignored so labels such as
 "Project owner:" or "Current milestone:" are not misclassified as Shodan
-filters. The validator does not contact Shodan or execute searches.
+filters. Generic teaching placeholders are ignored as well. The validator does
+not contact Shodan or execute searches.
 """
 
 from __future__ import annotations
@@ -30,6 +31,7 @@ SCAN_TARGETS = [
 TOKEN_RE = re.compile(r"(?<![\w./-])([a-z][a-z0-9_.-]*):(?=(?:\"|[A-Za-z0-9_*.-]))")
 INLINE_CODE_RE = re.compile(r"`([^`]+)`")
 FENCE_RE = re.compile(r"^\s*(```|~~~)")
+GENERIC_PLACEHOLDERS = {"filter", "example", "title"}
 
 
 def load_allowlist() -> set[str]:
@@ -83,6 +85,8 @@ def main() -> int:
         for line_number, fragment in code_fragments(text):
             for match in TOKEN_RE.finditer(fragment):
                 token = match.group(1)
+                if token in GENERIC_PLACEHOLDERS:
+                    continue
                 if token not in allowed:
                     rel = path.relative_to(ROOT)
                     errors.append(f"{rel}:{line_number}: undocumented filter token '{token}'")
