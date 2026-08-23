@@ -15,6 +15,18 @@ The project has evolved beyond a list of search queries. It now provides a struc
 
 > **Authorized use only:** Use this project only for systems you own, administer, or are explicitly authorized to assess. Public visibility does not grant permission to access, authenticate to, modify, exploit, disrupt, or test a third-party system.
 
+## Protect · Detect · Defend
+
+Project h4ckd4d combines technical cybersecurity engineering with a broader public-interest mission: using technology, OSINT, threat intelligence, and responsible digital-investigation methods to help protect people — especially children and families — from digital threats.
+
+The child-protection and public-awareness pillar is represented by **[rifleman.us](https://www.rifleman.us/)**. Its strongest themes — prevention, online-safety awareness, responsible OSINT, preservation of digital evidence, family support, and threat visibility — are reflected in this repository without changing the framework's technical EASM/OSINT/CTI focus.
+
+Project h4ckd4d and rifleman.us are independent initiatives. They do not represent, speak for, or imply affiliation with government, police, military, intelligence, or law-enforcement agencies.
+
+- [`docs/child-protection-mission.md`](docs/child-protection-mission.md) — child-protection mission and operating principles.
+- [`docs/visual-identity.md`](docs/visual-identity.md) — visual system derived from the project's protection + intelligence identity.
+- [`BRANDING.md`](BRANDING.md) — canonical brand and signature standard.
+
 ## Intelligence lifecycle
 
 ```text
@@ -170,6 +182,8 @@ Create findings only after sufficient validation, preserving evidence, confidenc
 - [`docs/query-standard.md`](docs/query-standard.md) — professional query-documentation standard.
 - [`docs/osint-methodology.md`](docs/osint-methodology.md) — defensive OSINT methodology.
 - [`docs/cli-v2.md`](docs/cli-v2.md) — unified offline CLI guide.
+- [`docs/child-protection-mission.md`](docs/child-protection-mission.md) — child-protection and public-awareness mission.
+- [`docs/visual-identity.md`](docs/visual-identity.md) — visual identity and graphic-language specification.
 - [`intelligence/confidence-engine.md`](intelligence/confidence-engine.md) — evidence-confidence model.
 - [`intelligence/relationship-graph.md`](intelligence/relationship-graph.md) — asset relationship graph.
 - [`intelligence/risk-prioritization.md`](intelligence/risk-prioritization.md) — exposure prioritization.
