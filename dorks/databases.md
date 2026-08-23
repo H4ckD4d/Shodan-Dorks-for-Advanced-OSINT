@@ -1,6 +1,6 @@
 # Database Service Inventory
 
-> **Project owner:** H4ckD4d  
+> **Project owner:** h4ckd4d  
 > Use only for systems you own, administer, or are explicitly authorized to assess.
 
 This page is for identifying database services that appear in an authorized external asset inventory. Discovery does not authorize connection, authentication attempts, or data access.
@@ -55,4 +55,4 @@ Validate every result against the organization's current CMDB, cloud inventory, 
 
 ---
 
-**Original creator and project owner: H4ckD4d**
+**Original creator and project owner: h4ckd4d**
