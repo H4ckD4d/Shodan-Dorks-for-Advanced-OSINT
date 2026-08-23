@@ -1,5 +1,7 @@
 # Security and Responsible Use
 
+> **Project owner and original creator:** **H4ckD4d**
+
 This repository is intended for defensive security, education, OSINT research, and authorized assessment.
 
 ## Rules of use
@@ -27,3 +29,11 @@ If research reveals an exposed service belonging to another organization:
 Use GitHub issues for documentation errors, outdated filters, broken links, or unsafe examples in this repository.
 
 Do not post credentials, private keys, personal data, access tokens, or sensitive third-party system details in public issues.
+
+## Project governance
+
+Security-policy and responsible-use decisions for this repository are maintained by **H4ckD4d**, the original creator and project owner.
+
+---
+
+**Shodan Dorks for Advanced OSINT — original project by H4ckD4d.**
