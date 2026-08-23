@@ -3,9 +3,11 @@
 
 Project owner / original creator / primary maintainer: h4ckd4d
 
-This validator is intentionally conservative. It scans selected Markdown files for
-`filter:value`-style tokens and compares filter names against the curated allowlist
-in config/official-filters.txt. It does not contact Shodan or execute searches.
+The validator scans code examples and inline-code snippets in selected Markdown
+files, then compares `filter:value` tokens against the curated allowlist in
+config/official-filters.txt. Prose is intentionally ignored so labels such as
+"Project owner:" or "Current milestone:" are not misclassified as Shodan
+filters. The validator does not contact Shodan or execute searches.
 """
 
 from __future__ import annotations
@@ -26,6 +28,8 @@ SCAN_TARGETS = [
 ]
 
 TOKEN_RE = re.compile(r"(?<![\w./-])([a-z][a-z0-9_.-]*):(?=(?:\"|[A-Za-z0-9_*.-]))")
+INLINE_CODE_RE = re.compile(r"`([^`]+)`")
+FENCE_RE = re.compile(r"^\s*(```|~~~)")
 
 
 def load_allowlist() -> set[str]:
@@ -45,14 +49,39 @@ def iter_markdown_files():
             yield from sorted(target.rglob("*.md"))
 
 
+def code_fragments(text: str):
+    """Yield (line_number, code_fragment) from fenced and inline Markdown code."""
+    in_fence = False
+    fence_marker: str | None = None
+
+    for line_number, line in enumerate(text.splitlines(), start=1):
+        fence_match = FENCE_RE.match(line)
+        if fence_match:
+            marker = fence_match.group(1)
+            if not in_fence:
+                in_fence = True
+                fence_marker = marker
+            elif marker == fence_marker:
+                in_fence = False
+                fence_marker = None
+            continue
+
+        if in_fence:
+            yield line_number, line
+            continue
+
+        for match in INLINE_CODE_RE.finditer(line):
+            yield line_number, match.group(1)
+
+
 def main() -> int:
     allowed = load_allowlist()
     errors: list[str] = []
 
     for path in iter_markdown_files():
         text = path.read_text(encoding="utf-8")
-        for line_number, line in enumerate(text.splitlines(), start=1):
-            for match in TOKEN_RE.finditer(line):
+        for line_number, fragment in code_fragments(text):
+            for match in TOKEN_RE.finditer(fragment):
                 token = match.group(1)
                 if token not in allowed:
                     rel = path.relative_to(ROOT)
