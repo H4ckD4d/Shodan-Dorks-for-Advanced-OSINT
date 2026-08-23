@@ -1,0 +1,31 @@
+name: h4ckd4d Branding Validation
+
+# Project owner / original creator / primary maintainer: h4ckd4d
+
+on:
+  push:
+    branches: [main, brand-signature-h4ckd4d]
+    paths:
+      - "**/*.md"
+      - "scripts/validate_branding.py"
+      - ".github/workflows/branding-validation.yml"
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-branding:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate canonical project signature
+        run: python scripts/validate_branding.py
