@@ -1,6 +1,6 @@
 # Database Service Inventory
 
-> **Project owner:** h4ckd4d  
+> **Project owner:** Chris Cruz | h4ckd4d  
 > Use only for systems you own, administer, or are explicitly authorized to assess.
 
 This page is for identifying database services that appear in an authorized external asset inventory. Discovery does not authorize connection, authentication attempts, or data access.

@@ -1,6 +1,6 @@
 # DNS and Hostname Discovery
 
-> **Project owner:** h4ckd4d  
+> **Project owner:** Chris Cruz | h4ckd4d  
 > Use only for owned or explicitly authorized infrastructure.
 
 Shodan is not a full passive-DNS platform, but hostname metadata can be useful when reviewing an authorized external asset inventory.

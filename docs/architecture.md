@@ -1,6 +1,6 @@
 # Internet Exposure Intelligence Architecture
 
-> **Project owner:** h4ckd4d
+> **Project owner:** Chris Cruz | h4ckd4d
 
 ## Purpose
 

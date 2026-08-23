@@ -1,8 +1,8 @@
 # Changelog
 
-**Project owner:** h4ckd4d  
-**Original creator:** h4ckd4d  
-**Primary maintainer:** h4ckd4d
+**Project owner:** Chris Cruz | h4ckd4d  
+**Original creator:** Chris Cruz | h4ckd4d  
+**Primary maintainer:** Chris Cruz | h4ckd4d
 
 All notable changes to **Shodan Dorks for Advanced OSINT** are documented here.
 

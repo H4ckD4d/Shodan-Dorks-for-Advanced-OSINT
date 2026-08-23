@@ -1,6 +1,6 @@
 # Project Roadmap
 
-> **Project owner:** h4ckd4d
+> **Project owner:** Chris Cruz | h4ckd4d
 
 ## Vision
 

@@ -1,6 +1,6 @@
 # Certificate Pivoting Playbook
 
-> **Project owner:** h4ckd4d
+> **Project owner:** Chris Cruz | h4ckd4d
 
 ## Objective
 

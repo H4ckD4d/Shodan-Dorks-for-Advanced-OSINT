@@ -1,6 +1,6 @@
 # Asset Attribution and Ownership Confidence
 
-> **Project owner:** h4ckd4d
+> **Project owner:** Chris Cruz | h4ckd4d
 
 ## Purpose
 

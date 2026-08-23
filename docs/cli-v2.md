@@ -1,6 +1,6 @@
 # h4ckd4d-osint CLI
 
-> **Project owner:** h4ckd4d
+> **Project owner:** Chris Cruz | h4ckd4d
 
 The v2 CLI is an offline orchestration layer for the Internet Exposure Intelligence framework. It does not run Shodan searches and does not contact external targets.
 

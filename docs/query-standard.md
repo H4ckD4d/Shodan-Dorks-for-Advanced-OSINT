@@ -1,6 +1,6 @@
 # Professional Query Documentation Standard
 
-> **Project owner:** h4ckd4d
+> **Project owner:** Chris Cruz | h4ckd4d
 
 Every query added to this repository should be documented as an analytical unit rather than as a raw command.
 

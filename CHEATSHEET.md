@@ -1,6 +1,6 @@
 # Shodan Defensive OSINT Cheatsheet
 
-> **Project owner:** h4ckd4d  
+> **Project owner:** Chris Cruz | h4ckd4d  
 > Part of **Shodan Dorks for Advanced OSINT**, created and maintained by **h4ckd4d**.
 
 Use only for assets you own, administer, or are explicitly authorized to assess.

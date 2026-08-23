@@ -1,6 +1,6 @@
 # Asset Relationship Graph
 
-> **Project owner:** h4ckd4d
+> **Project owner:** Chris Cruz | h4ckd4d
 
 Internet exposure analysis becomes more reliable when assets are modeled as relationships instead of isolated search results.
 

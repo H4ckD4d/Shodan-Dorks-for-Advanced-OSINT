@@ -1,6 +1,6 @@
 # SSH Defensive Inventory
 
-> **Project owner:** h4ckd4d  
+> **Project owner:** Chris Cruz | h4ckd4d  
 > Use only for owned or explicitly authorized infrastructure.
 
 This collection is intended for identifying SSH exposure in an organization's approved external inventory.

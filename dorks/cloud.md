@@ -1,6 +1,6 @@
 # Cloud Asset Inventory
 
-> **Project owner:** h4ckd4d  
+> **Project owner:** Chris Cruz | h4ckd4d  
 > Use only for cloud resources you own, administer, or are explicitly authorized to assess.
 
 Shodan can help reconcile Internet-facing cloud services with an organization's authoritative cloud inventory. Provider ownership alone is not enough to establish that a host belongs to your organization.

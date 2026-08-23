@@ -1,6 +1,6 @@
 # Evidence Confidence Engine
 
-> **Project owner:** h4ckd4d
+> **Project owner:** Chris Cruz | h4ckd4d
 
 The confidence engine provides a repeatable way to estimate how strongly available evidence supports asset attribution. It is not a vulnerability score and does not indicate exploitability.
 

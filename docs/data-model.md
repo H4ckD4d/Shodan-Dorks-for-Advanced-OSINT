@@ -1,6 +1,6 @@
 # Intelligence Engineering Data Model
 
-> **Project owner:** h4ckd4d
+> **Project owner:** Chris Cruz | h4ckd4d
 
 The v2 framework treats public Internet telemetry as structured evidence rather than as a final security conclusion.
 
