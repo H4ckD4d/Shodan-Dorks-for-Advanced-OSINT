@@ -113,3 +113,16 @@ Do not treat a product string, vulnerability label, screenshot, or banner as pro
 - https://help.shodan.io/the-basics/search-query-fundamentals
 - https://developer.shodan.io/api
 - https://trends.shodan.io/search/filters
+
+<!-- h4ckd4d-brand-signature:start -->
+---
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->

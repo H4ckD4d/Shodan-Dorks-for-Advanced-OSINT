@@ -13,6 +13,21 @@ import json
 from datetime import datetime, timezone
 from pathlib import Path
 
+BRAND_SIGNATURE = [
+    '<!-- h4ckd4d-brand-signature:start -->',
+    '---',
+    '',
+    '**Chris Cruz | h4ckd4d**  ',
+    'Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  ',
+    'OSCP | CEH | CISSP | MITRE ATT&CK® Contributor',
+    '',
+    '**Founder — Project h4ckd4d**  ',
+    'Technology for Child Protection • OSINT • Threat Intelligence',
+    '',
+    '*"Protect. Detect. Defend."*',
+    '<!-- h4ckd4d-brand-signature:end -->',
+]
+
 
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
@@ -40,7 +55,8 @@ def render(data: dict) -> str:
     lines = [
         "# Internet Exposure Intelligence Report",
         "",
-        "> **Project owner:** h4ckd4d",
+        "> **Project owner:** Chris Cruz | h4ckd4d",
+        "> **Project:** Shodan Dorks for Advanced OSINT",
         "",
         f"**Organization:** {data.get('organization', 'Unknown')}  ",
         f"**Generated:** {now}  ",
@@ -69,11 +85,9 @@ def render(data: dict) -> str:
         "",
         "Validate ownership, telemetry freshness, and internal configuration before escalating any observation. Public telemetry does not authorize interaction with a system.",
         "",
-        "---",
-        "",
-        "**Internet Exposure Intelligence Framework by h4ckd4d.**",
-        "",
     ])
+    lines.extend(BRAND_SIGNATURE)
+    lines.append("")
     return "\n".join(lines)
 
 

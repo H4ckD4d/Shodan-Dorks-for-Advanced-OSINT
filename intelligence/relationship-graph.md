@@ -1,6 +1,6 @@
 # Asset Relationship Graph
 
-> **Project owner:** h4ckd4d
+> **Project owner:** Chris Cruz | h4ckd4d
 
 Internet exposure analysis becomes more reliable when assets are modeled as relationships instead of isolated search results.
 
@@ -75,3 +75,16 @@ Relationship discovery does not authorize interaction with an asset. Graph edges
 ---
 
 **Internet Exposure Intelligence Framework by h4ckd4d.**
+
+<!-- h4ckd4d-brand-signature:start -->
+---
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->

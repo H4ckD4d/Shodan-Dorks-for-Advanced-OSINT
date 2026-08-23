@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Framework](https://img.shields.io/badge/framework-Internet%20Exposure%20Intelligence-blue.svg)](docs/architecture.md)
 
-> **Original creator, project owner, and primary maintainer: h4ckd4d**
+> **Original creator, project owner, and primary maintainer: Chris Cruz | h4ckd4d**
 
 **Shodan Dorks for Advanced OSINT** is a defensive **Internet Exposure Intelligence**, **External Attack Surface Management (EASM)**, **OSINT**, and **Cyber Threat Intelligence (CTI)** framework for authorized environments.
 
@@ -256,7 +256,7 @@ Before adding a Shodan filter:
 
 ## Project owner profile
 
-**h4ckd4d** is the original creator, project owner, and primary maintainer.
+**Chris Cruz | h4ckd4d** is the original creator, project owner, and primary maintainer.
 
 Technical focus documented by this project includes cybersecurity, cyber intelligence, OSINT, Red Team methodologies, attack-surface analysis, network and systems infrastructure, defensive architecture, automation, OT/IT integration, and security frameworks such as NIST CSF, CIS Controls, ISO/IEC 27001, MITRE ATT&CK, and OWASP-oriented practices.
 
@@ -286,3 +286,16 @@ Released under the MIT License. See [`LICENSE`](LICENSE) and [`CREDITS.md`](CRED
 **Shodan Dorks for Advanced OSINT**  
 **Internet Exposure Intelligence · EASM · OSINT · CTI · Defensive Security**  
 Created and maintained by **h4ckd4d**.
+
+<!-- h4ckd4d-brand-signature:start -->
+---
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->

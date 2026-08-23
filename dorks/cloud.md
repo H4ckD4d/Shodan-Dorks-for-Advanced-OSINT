@@ -1,6 +1,6 @@
 # Cloud Asset Inventory
 
-> **Project owner:** h4ckd4d  
+> **Project owner:** Chris Cruz | h4ckd4d  
 > Use only for cloud resources you own, administer, or are explicitly authorized to assess.
 
 Shodan can help reconcile Internet-facing cloud services with an organization's authoritative cloud inventory. Provider ownership alone is not enough to establish that a host belongs to your organization.
@@ -69,3 +69,16 @@ org:"Example Organization" ssl.cert.subject.cn:"example.com"
 ---
 
 **Original creator and project owner: h4ckd4d**
+
+<!-- h4ckd4d-brand-signature:start -->
+---
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->

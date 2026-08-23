@@ -93,3 +93,16 @@ Useful classifications include:
 ## Key principle
 
 Shodan is a source of external telemetry, not a substitute for authoritative internal inventory or current authenticated assessment. Use it to find discrepancies and prioritize defensive review.
+
+<!-- h4ckd4d-brand-signature:start -->
+---
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->

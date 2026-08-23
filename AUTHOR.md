@@ -1,10 +1,21 @@
-# h4ckd4d — Project Owner Profile
+# Chris Cruz | h4ckd4d — Project Owner Profile
 
-**Original creator, project owner, and primary maintainer of Shodan Dorks for Advanced OSINT.**
+> **Original creator, project owner, and primary maintainer of Shodan Dorks for Advanced OSINT.**
+
+## Professional signature
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
 
 ## Professional focus
 
-h4ckd4d maintains a multidisciplinary technical focus spanning cybersecurity, cyber intelligence, OSINT, IT infrastructure, automation, and technical risk management.
+Chris Cruz, operating under the **h4ckd4d** project identity, maintains a multidisciplinary technical focus spanning cybersecurity, cyber intelligence, OSINT, IT infrastructure, automation, and technical risk management.
 
 Core areas include:
 
@@ -49,15 +60,35 @@ The technical background behind this project also includes practical exposure to
 
 ## Project philosophy
 
-Shodan Dorks for Advanced OSINT is maintained as a defensive and educational reference. The project emphasizes reproducible research, documented query syntax, responsible use, and clear separation between public Internet telemetry and authorization to interact with systems.
+Shodan Dorks for Advanced OSINT is maintained as a defensive and educational cybersecurity project. It emphasizes reproducible research, documented query syntax, responsible use, evidence-based analysis, and clear separation between public Internet telemetry and authorization to interact with systems.
+
+The project identity is built around three operating principles:
+
+- **Protect** — reduce exposure and improve resilience.
+- **Detect** — identify relevant signals, drift, and attack-surface changes.
+- **Defend** — turn evidence into actionable defensive intelligence.
+
+## Project h4ckd4d
+
+Project h4ckd4d connects cybersecurity, OSINT, threat intelligence, automation, and technology-for-protection initiatives under a single technical identity.
+
+Within this repository, that identity is expressed through defensive Internet Exposure Intelligence, External Attack Surface Management, analyst methodology, evidence standards, and reusable intelligence-engineering tooling.
 
 ## Ownership
 
-This repository was originally created by **h4ckd4d** and remains under the project ownership and primary maintenance of **h4ckd4d**.
+This repository was originally created by **Chris Cruz | h4ckd4d** and remains under the project ownership and primary maintenance of **Chris Cruz | h4ckd4d**.
 
 External contributions may be credited through Git history, pull requests, release notes, and `CREDITS.md`; contribution does not transfer project ownership.
 
+<!-- h4ckd4d-brand-signature:start -->
 ---
 
-**h4ckd4d**  
-Cybersecurity · Cyber Intelligence · OSINT · Red Team · Infrastructure · Automation · Defensive Security
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->

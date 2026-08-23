@@ -1,6 +1,6 @@
 # IoT and ICS Defensive Exposure Review
 
-> **Project owner:** h4ckd4d  
+> **Project owner:** Chris Cruz | h4ckd4d  
 > Use only for devices and networks you own, administer, or are explicitly authorized to assess.
 
 IoT and industrial-control environments require extra caution. This page deliberately avoids presenting undocumented field names as official Shodan filters and avoids instructions for interacting with exposed control systems.
@@ -69,3 +69,16 @@ Reference reviewed: **August 23, 2026**.
 ---
 
 **Original creator and project owner: h4ckd4d**
+
+<!-- h4ckd4d-brand-signature:start -->
+---
+
+**Chris Cruz | h4ckd4d**  
+Cybersecurity • Red Team • Advanced Cyber Defense & Intelligence  
+OSCP | CEH | CISSP | MITRE ATT&CK® Contributor
+
+**Founder — Project h4ckd4d**  
+Technology for Child Protection • OSINT • Threat Intelligence
+
+*"Protect. Detect. Defend."*
+<!-- h4ckd4d-brand-signature:end -->
