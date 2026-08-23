@@ -1,0 +1,27 @@
+name: Shodan Filter Validation
+
+# Project owner / original creator / primary maintainer: H4ckD4d
+
+on:
+  push:
+    branches: [main, revamp-2026]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-filters:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate documented filters
+        run: python scripts/validate_filters.py
