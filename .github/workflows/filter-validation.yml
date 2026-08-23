@@ -1,6 +1,6 @@
 name: Shodan Filter Validation
 
-# Project owner / original creator / primary maintainer: H4ckD4d
+# Project owner / original creator / primary maintainer: h4ckd4d
 
 on:
   push:
