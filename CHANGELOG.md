@@ -1,8 +1,8 @@
 # Changelog
 
-**Project owner:** H4ckD4d  
-**Original creator:** H4ckD4d  
-**Primary maintainer:** H4ckD4d
+**Project owner:** h4ckd4d  
+**Original creator:** h4ckd4d  
+**Primary maintainer:** h4ckd4d
 
 All notable changes to **Shodan Dorks for Advanced OSINT** are documented here.
 
@@ -16,6 +16,7 @@ This project follows Semantic Versioning for tagged releases.
 - Curated query collections under `dorks/`.
 - Defensive asset-discovery examples.
 - `CHEATSHEET.md` quick reference.
+- `AUTHOR.md` with the project owner's professional and technical profile.
 - Project governance files: `CONTRIBUTING.md`, `SECURITY.md`, `CREDITS.md`, and `CODEOWNERS`.
 - Documentation quality checks with GitHub Actions.
 - Issue and pull-request templates.
@@ -26,6 +27,7 @@ This project follows Semantic Versioning for tagged releases.
 - Replaced the original monolithic README with a focused technical entry point.
 - Separated documented Shodan filters from free-text banner searches.
 - Removed unsupported filter names from the official-filter reference unless independently validated.
+- Standardized project-owner branding as `h4ckd4d` in lowercase.
 
 ### Security
 
@@ -37,4 +39,4 @@ First release-candidate milestone for the 2026 repository redesign.
 
 ### Ownership
 
-Shodan Dorks for Advanced OSINT was created by and remains maintained under the project ownership of **H4ckD4d**.
+Shodan Dorks for Advanced OSINT was created by and remains maintained under the project ownership of **h4ckd4d**.
