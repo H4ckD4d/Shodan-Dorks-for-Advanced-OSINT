@@ -1,6 +1,6 @@
 # IoT and ICS Defensive Exposure Review
 
-> **Project owner:** H4ckD4d  
+> **Project owner:** h4ckd4d  
 > Use only for devices and networks you own, administer, or are explicitly authorized to assess.
 
 IoT and industrial-control environments require extra caution. This page deliberately avoids presenting undocumented field names as official Shodan filters and avoids instructions for interacting with exposed control systems.
@@ -68,4 +68,4 @@ Reference reviewed: **August 23, 2026**.
 
 ---
 
-**Original creator and project owner: H4ckD4d**
+**Original creator and project owner: h4ckd4d**
