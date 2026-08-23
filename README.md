@@ -1,5 +1,8 @@
 # Shodan Dorks for Advanced OSINT
 
+> **Project owner and maintainer:** **H4ckD4d**  
+> Original project by **H4ckD4d**. Please preserve project attribution when redistributing or adapting this repository.
+
 A curated, defensive reference for Shodan search syntax, filters, and OSINT workflows focused on authorized asset discovery, exposure auditing, service identification, and Internet-facing attack-surface awareness.
 
 > **Scope:** Use this repository only on systems you own, administer, or are explicitly authorized to assess. Shodan indexes public Internet telemetry; public visibility does not imply permission to access or test a system.
@@ -50,12 +53,19 @@ shodan search 'org:"Example Organization" port:443'
 - [`docs/getting-started.md`](docs/getting-started.md) — search fundamentals and safe workflow.
 - [`docs/filters-reference.md`](docs/filters-reference.md) — curated official filter reference.
 - [`docs/osint-methodology.md`](docs/osint-methodology.md) — repeatable defensive OSINT methodology.
+- [`docs/cli-api.md`](docs/cli-api.md) — CLI/API usage for authorized inventory and validation.
+- [`CHEATSHEET.md`](CHEATSHEET.md) — compact quick-reference sheet.
 
 ### Query collections
 
 - [`dorks/network.md`](dorks/network.md) — network, ASN, geography, service, and product filters.
 - [`dorks/web.md`](dorks/web.md) — HTTP metadata and web-technology discovery.
 - [`dorks/ssl-tls.md`](dorks/ssl-tls.md) — certificate and TLS-focused searches.
+- [`dorks/dns-hostnames.md`](dorks/dns-hostnames.md) — hostname and domain-oriented pivots.
+- [`dorks/ssh.md`](dorks/ssh.md) — SSH inventory and fingerprint review.
+- [`dorks/cloud.md`](dorks/cloud.md) — cloud-hosted asset inventory patterns.
+- [`dorks/databases.md`](dorks/databases.md) — defensive database-service inventory.
+- [`dorks/iot-ics.md`](dorks/iot-ics.md) — conservative IoT/ICS exposure review using documented filters and banner text.
 
 ### Defensive examples
 
@@ -78,7 +88,7 @@ The authoritative filter set can change. Shodan exposes the current list program
 
 ## Important distinction: filters vs. banner text
 
-A string that appears in a Shodan banner is not automatically a valid search filter. For example, vendor, protocol, product, or industrial metadata may be searchable as banner text or represented through another documented field. This project does not label undocumented field names as official filters.
+A string that appears in a Shodan banner is not automatically a valid search filter. Vendor, protocol, product, or industrial metadata may be searchable as banner text or represented through another documented field. This project does not label undocumented field names as official filters.
 
 ## Validation policy
 
@@ -99,6 +109,12 @@ Before adding a new filter to this repository:
 - Shodan filter reference: https://trends.shodan.io/search/filters
 - Shodan Datapedia: https://datapedia.shodan.io/
 
+## Ownership and credits
+
+**H4ckD4d** is the original creator, project owner, and primary maintainer of **Shodan Dorks for Advanced OSINT**.
+
+See [`CREDITS.md`](CREDITS.md) for project attribution and contributor-credit conventions.
+
 ## Contributing
 
 Corrections and additions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting changes.
@@ -107,8 +123,11 @@ Corrections and additions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 See [`SECURITY.md`](SECURITY.md).
 
-## Author
+## License
 
-Maintained by **H4ckD4d**.
+Released under the MIT License. See [`LICENSE`](LICENSE). The license preserves the copyright notice while permitting reuse under its terms.
 
+---
+
+**Shodan Dorks for Advanced OSINT** — created and maintained by **H4ckD4d**.  
 Cybersecurity · OSINT · Threat Intelligence · Defensive Security
