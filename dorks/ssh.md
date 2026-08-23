@@ -1,6 +1,6 @@
 # SSH Defensive Inventory
 
-> **Project owner:** H4ckD4d  
+> **Project owner:** h4ckd4d  
 > Use only for owned or explicitly authorized infrastructure.
 
 This collection is intended for identifying SSH exposure in an organization's approved external inventory.
@@ -49,4 +49,4 @@ Never attempt authentication or interaction with a third-party SSH service based
 
 ---
 
-**Original creator and project owner: H4ckD4d**
+**Original creator and project owner: h4ckd4d**
