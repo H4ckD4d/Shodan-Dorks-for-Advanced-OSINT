@@ -1,0 +1,14 @@
+{
+  "organization": "Example Organization",
+  "authorization": {
+    "confirmed": true,
+    "reference": "INTERNAL-AUTH-REFERENCE",
+    "expires": "2026-12-31"
+  },
+  "scope": {
+    "domains": ["example.com"],
+    "cidrs": ["203.0.113.0/24"],
+    "asns": ["AS64500"],
+    "organizations": ["Example Organization"]
+  }
+}

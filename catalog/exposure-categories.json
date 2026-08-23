@@ -1,0 +1,15 @@
+{
+  "project_owner": "h4ckd4d",
+  "categories": [
+    {"id": "web", "name": "Web Infrastructure", "review_priority": "contextual"},
+    {"id": "remote-access", "name": "Remote Administration", "review_priority": "high"},
+    {"id": "database", "name": "Database Services", "review_priority": "high"},
+    {"id": "identity", "name": "Identity and Authentication", "review_priority": "high"},
+    {"id": "network-security", "name": "Network and Security Appliances", "review_priority": "high"},
+    {"id": "cloud", "name": "Cloud Infrastructure", "review_priority": "contextual"},
+    {"id": "devops", "name": "Development and DevOps Infrastructure", "review_priority": "high"},
+    {"id": "monitoring", "name": "Monitoring and Management", "review_priority": "high"},
+    {"id": "messaging", "name": "Messaging and Mail Infrastructure", "review_priority": "contextual"},
+    {"id": "iot-ot", "name": "IoT and OT/ICS", "review_priority": "critical-review"}
+  ]
+}

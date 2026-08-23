@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/schemas/scope.schema.json",
+  "title": "Authorized Assessment Scope",
+  "description": "Machine-readable scope definition for defensive Internet exposure analysis.",
+  "type": "object",
+  "required": ["organization", "authorization", "scope"],
+  "properties": {
+    "organization": {"type": "string", "minLength": 1},
+    "authorization": {
+      "type": "object",
+      "required": ["confirmed"],
+      "properties": {
+        "confirmed": {"const": true},
+        "reference": {"type": "string"},
+        "expires": {"type": "string", "format": "date"}
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "domains": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "cidrs": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+        "asns": {"type": "array", "items": {"type": "string", "pattern": "^AS[0-9]+$"}, "uniqueItems": true},
+        "organizations": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "x-project-owner": "h4ckd4d"
+}

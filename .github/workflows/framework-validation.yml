@@ -1,0 +1,42 @@
+name: Framework Validation
+
+# Project owner / original creator / primary maintainer: h4ckd4d
+
+on:
+  push:
+    branches: [main, easm-intelligence-framework]
+    paths:
+      - "schemas/**"
+      - "catalog/**"
+      - "examples/authorized-scope.json"
+      - "scripts/**"
+      - ".github/workflows/framework-validation.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "schemas/**"
+      - "catalog/**"
+      - "examples/authorized-scope.json"
+      - "scripts/**"
+      - ".github/workflows/framework-validation.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate-framework:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate framework structure
+        run: python scripts/validate_framework.py
+
+      - name: Generate documentation-safe scope queries
+        run: python scripts/scope_query_builder.py examples/authorized-scope.json

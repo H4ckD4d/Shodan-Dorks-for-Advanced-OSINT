@@ -3,30 +3,55 @@
 [![Documentation Quality](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/docs-quality.yml/badge.svg)](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/docs-quality.yml)
 [![Shodan Filter Validation](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/filter-validation.yml/badge.svg)](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/filter-validation.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/status-1.0.0--rc.1-blue.svg)](CHANGELOG.md)
+[![Framework](https://img.shields.io/badge/framework-Internet%20Exposure%20Intelligence-blue.svg)](docs/architecture.md)
 
-> **Project owner and maintainer:** **h4ckd4d**  
-> Original project by **h4ckd4d**. Please preserve project attribution when redistributing or adapting this repository.
+> **Original creator, project owner, and primary maintainer: h4ckd4d**
 
-A curated, defensive reference for Shodan search syntax, filters, and OSINT workflows focused on authorized asset discovery, exposure auditing, service identification, and Internet-facing attack-surface awareness.
+**Shodan Dorks for Advanced OSINT** is evolving into a defensive **Internet Exposure Intelligence**, **External Attack Surface Management (EASM)**, **OSINT**, and **Cyber Threat Intelligence (CTI)** framework for authorized environments.
 
-> **Scope:** Use this repository only on systems you own, administer, or are explicitly authorized to assess. Shodan indexes public Internet telemetry; public visibility does not imply permission to access or test a system.
+The project is not designed as a collection of exploitation recipes. Its purpose is to help analysts move from raw public Internet telemetry to defensible security intelligence through explicit scope, attribution, enrichment, classification, prioritization, validation, and reporting.
 
-## Project status
+> **Authorized use only:** Use this project only for systems you own, administer, or are explicitly authorized to assess. Public visibility does not grant permission to access, authenticate to, modify, exploit, disrupt, or test a third-party system.
 
-**Current milestone:** `1.0.0-rc.1`  
-**Reference validation:** August 23, 2026  
-**Owner:** h4ckd4d
+## Framework model
 
-See [`CHANGELOG.md`](CHANGELOG.md) for release history and [`catalog/index.json`](catalog/index.json) for the machine-readable project catalog.
+```text
+Authorized Scope
+      ↓
+Discover
+      ↓
+Attribute
+      ↓
+Enrich
+      ↓
+Classify
+      ↓
+Analyze Exposure
+      ↓
+Prioritize Risk
+      ↓
+Validate
+      ↓
+Report / Baseline
+```
 
-## Why this project exists
+The core analytical rule is:
 
-Shodan queries are most useful when they are precise, reproducible, and grounded in documented filters. This repository separates:
+> **Observation ≠ Finding ≠ Vulnerability ≠ Exploitability ≠ Compromise**
 
-- **Official Shodan filters** — fields accepted by the Shodan search engine.
-- **Banner search terms** — free-text terms searched in collected service banners.
-- **Defensive workflows** — practical ways to inventory and review authorized Internet-facing assets.
+Each transition requires evidence.
+
+## What this project provides
+
+- Curated Shodan filter and query reference.
+- Defensive query collections.
+- External attack-surface analyst playbooks.
+- Asset-attribution and ownership-confidence methodology.
+- Exposure taxonomy and risk-prioritization guidance.
+- Machine-readable scope and catalog structures.
+- Offline validation tooling.
+- Scope-aware query generation.
+- Documentation and CI standards for reproducible research.
 
 ## Quick start
 
@@ -36,137 +61,201 @@ Shodan filters use the form:
 filter:value
 ```
 
-Examples:
+Examples using documentation-safe values:
 
 ```text
 org:"Example Organization"
 net:"203.0.113.0/24"
-port:443 country:US
-product:"nginx" org:"Example Organization"
-http.title:"Example Portal" org:"Example Organization"
-has_ssl:true org:"Example Organization"
-```
-
-Combine filters to reduce noise:
-
-```text
+asn:"AS64500"
+hostname:"example.com"
 org:"Example Organization" port:443 has_ssl:true
 ```
 
-For CLI searches containing quotes, wrap the full query in an additional pair of shell quotes:
+A query is only the beginning. Every result should be interpreted in context and validated against ownership, freshness, service identity, and authoritative inventory.
 
-```bash
-shodan search 'org:"Example Organization" port:443'
+## Scope-aware query builder
+
+The project includes an offline query-template generator that requires explicit authorization in the local scope file.
+
+Example scope:
+
+```json
+{
+  "organization": "Example Organization",
+  "authorization": {
+    "confirmed": true,
+    "reference": "INTERNAL-AUTH-REFERENCE"
+  },
+  "scope": {
+    "domains": ["example.com"],
+    "cidrs": ["203.0.113.0/24"],
+    "asns": ["AS64500"],
+    "organizations": ["Example Organization"]
+  }
+}
 ```
 
-## Project owner profile
+Generate reviewable query templates:
 
-**h4ckd4d** is the original creator, project owner, and primary maintainer of **Shodan Dorks for Advanced OSINT**.
+```bash
+python scripts/scope_query_builder.py examples/authorized-scope.json
+```
 
-Professional and technical focus includes:
+The script does **not** contact Shodan and does **not** execute searches.
 
-- Cybersecurity, cyber intelligence, OSINT, Red Team methodologies, vulnerability management, and attack-surface mapping.
-- Network and systems infrastructure, including Linux/Windows servers, virtualization, VPNs, VLANs, firewalls, Wi-Fi, fiber, NAS, backup, VoIP, hardening, and monitoring.
-- Security architecture and risk practices including incident response, business impact analysis, continuity/disaster recovery, least privilege, and Zero Trust.
-- Security frameworks and methodologies including NIST Cybersecurity Framework, CIS Controls, ISO/IEC 27001, ISO 31000, ISO 22301, MITRE ATT&CK, and OWASP-oriented security practices.
-- Automation and OT/IT integration, including PLC/controller environments, telemetry, industrial automation, and infrastructure monitoring.
-- Engineering and tooling with Docker, APIs, Linux-based labs, automation platforms, and AI-assisted technical workflows.
-- Technical training spanning electrical/electronics, industrial automation and controls, LOTO, and safety/compliance disciplines.
+## Professional analyst workflow
 
-See [`AUTHOR.md`](AUTHOR.md) for the expanded professional profile.
+### 1. Define authorization and scope
+
+Establish domains, CIDRs, ASNs, organizations, and constraints that are explicitly approved.
+
+### 2. Discover observations
+
+Use public telemetry to identify candidate Internet-facing assets and services.
+
+### 3. Attribute ownership
+
+Correlate candidates with authoritative DNS, internal inventory, cloud resources, RDAP/WHOIS, certificates, and known infrastructure relationships.
+
+### 4. Classify exposure
+
+Group services by function such as web, remote administration, databases, identity, network/security appliances, cloud, DevOps, monitoring, messaging, or IoT/OT.
+
+### 5. Prioritize
+
+Use business criticality, service sensitivity, exposure context, telemetry freshness, and ownership confidence to prioritize analyst review.
+
+### 6. Validate internally
+
+Confirm findings using systems and administrative control planes that the organization is authorized to operate.
+
+### 7. Report and baseline
+
+Record evidence, confidence, remediation ownership, and expected-vs-observed state.
 
 ## Repository map
 
-### Documentation
+### Framework and methodology
 
-- [`docs/getting-started.md`](docs/getting-started.md) — search fundamentals and safe workflow.
-- [`docs/filters-reference.md`](docs/filters-reference.md) — curated official filter reference.
-- [`docs/osint-methodology.md`](docs/osint-methodology.md) — repeatable defensive OSINT methodology.
-- [`docs/cli-api.md`](docs/cli-api.md) — CLI/API usage for authorized inventory and validation.
-- [`CHEATSHEET.md`](CHEATSHEET.md) — compact quick-reference sheet.
-- [`CHANGELOG.md`](CHANGELOG.md) — version history and release milestones.
-- [`AUTHOR.md`](AUTHOR.md) — project owner profile, skills, and technical focus.
+- [`ROADMAP.md`](ROADMAP.md) — long-term development plan.
+- [`docs/architecture.md`](docs/architecture.md) — Internet Exposure Intelligence architecture.
+- [`docs/asset-attribution.md`](docs/asset-attribution.md) — ownership evidence and confidence model.
+- [`docs/query-standard.md`](docs/query-standard.md) — professional query documentation standard.
+- [`docs/osint-methodology.md`](docs/osint-methodology.md) — defensive OSINT methodology.
+- [`intelligence/risk-prioritization.md`](intelligence/risk-prioritization.md) — exposure risk-prioritization model.
 
-### Query collections
+### Analyst playbooks
 
-- [`dorks/network.md`](dorks/network.md) — network, ASN, geography, service, and product filters.
-- [`dorks/web.md`](dorks/web.md) — HTTP metadata and web-technology discovery.
-- [`dorks/ssl-tls.md`](dorks/ssl-tls.md) — certificate and TLS-focused searches.
-- [`dorks/dns-hostnames.md`](dorks/dns-hostnames.md) — hostname and domain-oriented pivots.
-- [`dorks/ssh.md`](dorks/ssh.md) — SSH inventory and fingerprint review.
-- [`dorks/cloud.md`](dorks/cloud.md) — cloud-hosted asset inventory patterns.
-- [`dorks/databases.md`](dorks/databases.md) — defensive database-service inventory.
-- [`dorks/iot-ics.md`](dorks/iot-ics.md) — conservative IoT/ICS exposure review using documented filters and banner text.
+- [`playbooks/external-attack-surface-baseline.md`](playbooks/external-attack-surface-baseline.md) — establish and maintain an external baseline.
+- [`playbooks/shadow-it-review.md`](playbooks/shadow-it-review.md) — investigate candidate undocumented assets.
+- [`playbooks/certificate-pivoting.md`](playbooks/certificate-pivoting.md) — use certificate metadata as relationship evidence.
 
-### Defensive examples
+### Shodan reference
 
-- [`examples/asset-discovery.md`](examples/asset-discovery.md) — authorized asset-discovery workflow.
+- [`CHEATSHEET.md`](CHEATSHEET.md) — compact reference.
+- [`docs/getting-started.md`](docs/getting-started.md) — search fundamentals.
+- [`docs/filters-reference.md`](docs/filters-reference.md) — curated official-filter reference.
+- [`docs/cli-api.md`](docs/cli-api.md) — defensive CLI/API patterns.
+- [`dorks/network.md`](dorks/network.md) — network and service discovery.
+- [`dorks/web.md`](dorks/web.md) — web and HTTP metadata.
+- [`dorks/ssl-tls.md`](dorks/ssl-tls.md) — TLS/certificate searches.
+- [`dorks/dns-hostnames.md`](dorks/dns-hostnames.md) — hostname/domain pivots.
+- [`dorks/ssh.md`](dorks/ssh.md) — SSH inventory.
+- [`dorks/cloud.md`](dorks/cloud.md) — cloud asset review.
+- [`dorks/databases.md`](dorks/databases.md) — database-service inventory.
+- [`dorks/iot-ics.md`](dorks/iot-ics.md) — conservative IoT/ICS exposure review.
 
-### Automation and machine-readable data
+### Structured data and tooling
 
-- [`catalog/index.json`](catalog/index.json) — structured catalog of project content.
-- [`config/official-filters.txt`](config/official-filters.txt) — curated filter allowlist used by repository validation.
-- [`scripts/validate_filters.py`](scripts/validate_filters.py) — static validator for documented `filter:value` tokens.
-- [`.github/workflows/filter-validation.yml`](.github/workflows/filter-validation.yml) — CI validation for documented filters.
+- [`schemas/scope.schema.json`](schemas/scope.schema.json) — authorized-scope schema.
+- [`catalog/index.json`](catalog/index.json) — project content catalog.
+- [`catalog/exposure-categories.json`](catalog/exposure-categories.json) — exposure taxonomy.
+- [`config/official-filters.txt`](config/official-filters.txt) — curated Shodan filter allowlist.
+- [`scripts/validate_filters.py`](scripts/validate_filters.py) — offline filter validation.
+- [`scripts/scope_query_builder.py`](scripts/scope_query_builder.py) — scope-aware query-template generator.
+- [`examples/authorized-scope.json`](examples/authorized-scope.json) — documentation-only scope example.
 
-## Core filter families
+## Ownership confidence
 
-| Category | Useful filters |
+| Confidence | Interpretation |
 | --- | --- |
-| Network | `ip`, `net`, `asn`, `port`, `hostname` |
-| Ownership / location | `org`, `isp`, `country`, `city`, `region`, `state` |
-| Service | `product`, `version`, `os`, `cpe` |
-| HTTP | `http.title`, `http.status`, `http.component`, `http.component_category`, `http.waf` |
-| TLS / SSL | `has_ssl`, `ssl`, `ssl.version`, `ssl.cert.subject.cn`, `ssl.cert.issuer.cn`, `ssl.cert.fingerprint`, `ssl.jarm`, `ssl.ja3s` |
-| Screenshots | `has_screenshot`, `screenshot.label` |
-| SSH | `ssh.fingerprint` |
-| Exposure metadata | `tag`, `vuln`, `has_vuln` |
+| High | Supported by authoritative inventory, owned CIDR/ASN, cloud inventory, or authoritative DNS |
+| Medium | Strong supporting relationship requiring confirmation |
+| Low | Candidate based on weak public relationship evidence |
+| Rejected | Confirmed unrelated or outside scope |
 
-The authoritative filter set can change. Shodan exposes the current list programmatically through `/shodan/host/search/filters`.
+**Relationship is not ownership. Ownership is not authorization.**
 
-## Important distinction: filters vs. banner text
+## Exposure categories
 
-A string that appears in a Shodan banner is not automatically a valid search filter. Vendor, protocol, product, or industrial metadata may be searchable as banner text or represented through another documented field. This project does not label undocumented field names as official filters.
+The framework organizes review around security context rather than ports alone:
+
+- Web Infrastructure
+- Remote Administration
+- Database Services
+- Identity and Authentication
+- Network and Security Appliances
+- Cloud Infrastructure
+- Development and DevOps Infrastructure
+- Monitoring and Management
+- Messaging and Mail Infrastructure
+- IoT and OT/ICS
+
+## Query documentation standard
+
+Every professional query should explain:
+
+1. Objective.
+2. Query syntax.
+3. Filters used.
+4. Expected result.
+5. What the query does **not** prove.
+6. Validation steps.
+7. False-positive considerations.
+8. Related analytical pivots.
+
+This makes the repository useful as analyst training material, not just a command list.
 
 ## Validation policy
 
-Before adding a new filter to this repository:
+Before adding a Shodan filter:
 
-1. Confirm it in the official Shodan filter reference or API.
+1. Confirm it in the official Shodan reference or API.
 2. Verify the expected value format.
-3. Prefer examples scoped to owned or explicitly authorized assets.
-4. Document plan/API limitations when known.
-5. Add the validation date to significant reference updates.
-6. Ensure `python scripts/validate_filters.py` passes.
+3. Distinguish official filters from free-text banner searches.
+4. Use documentation-safe or explicitly authorized examples.
+5. Document important limitations.
+6. Run `python scripts/validate_filters.py`.
 
-**Reference validation:** August 23, 2026.
+## Project owner profile
 
-## Official references
+**h4ckd4d** is the original creator, project owner, and primary maintainer.
 
-- Shodan Help Center — Search Query Fundamentals: https://help.shodan.io/the-basics/search-query-fundamentals
-- Shodan Developer API: https://developer.shodan.io/api
-- Shodan filter reference: https://trends.shodan.io/search/filters
-- Shodan Datapedia: https://datapedia.shodan.io/
+Technical focus documented by this project includes cybersecurity, cyber intelligence, OSINT, Red Team methodologies, attack-surface analysis, network and systems infrastructure, defensive architecture, automation, OT/IT integration, and security frameworks such as NIST CSF, CIS Controls, ISO/IEC 27001, MITRE ATT&CK, and OWASP-oriented practices.
 
-## Ownership and credits
+See [`AUTHOR.md`](AUTHOR.md) for the expanded profile.
 
-**h4ckd4d** is the original creator, project owner, and primary maintainer of **Shodan Dorks for Advanced OSINT**.
+## Official Shodan references
 
-See [`CREDITS.md`](CREDITS.md) for project attribution and contributor-credit conventions.
+- [Shodan Search Query Fundamentals](https://help.shodan.io/the-basics/search-query-fundamentals)
+- [Shodan Developer API](https://developer.shodan.io/api)
+- [Shodan filter reference](https://trends.shodan.io/search/filters)
+- [Shodan Datapedia](https://datapedia.shodan.io/)
 
 ## Contributing
 
-Corrections and additions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting changes.
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md). Contributions should preserve defensive scope, evidence standards, and project attribution.
 
 ## Security and responsible use
 
 See [`SECURITY.md`](SECURITY.md).
 
-## License
+## License and credits
 
-Released under the MIT License. See [`LICENSE`](LICENSE). The license preserves the copyright notice while permitting reuse under its terms.
+Released under the MIT License. See [`LICENSE`](LICENSE) and [`CREDITS.md`](CREDITS.md).
 
 ---
 
-**Shodan Dorks for Advanced OSINT** — created and maintained by **h4ckd4d**.  
-Cybersecurity · OSINT · Threat Intelligence · Defensive Security
+**Shodan Dorks for Advanced OSINT**  
+**Internet Exposure Intelligence · EASM · OSINT · CTI · Defensive Security**  
+Created and maintained by **h4ckd4d**.
