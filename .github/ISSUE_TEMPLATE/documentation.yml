@@ -9,7 +9,7 @@ body:
       value: |
         Thanks for contributing to **Shodan Dorks for Advanced OSINT**.
 
-        Project owner and primary maintainer: **H4ckD4d**.
+        Project owner and primary maintainer: **h4ckd4d**.
 
   - type: input
     id: location
