@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Validate documented Shodan filter tokens used by this repository.
 
-Project owner / original creator / primary maintainer: H4ckD4d
+Project owner / original creator / primary maintainer: h4ckd4d
 
 This validator is intentionally conservative. It scans selected Markdown files for
 `filter:value`-style tokens and compares filter names against the curated allowlist
