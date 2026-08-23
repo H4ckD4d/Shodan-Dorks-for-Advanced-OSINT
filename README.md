@@ -1,166 +1,114 @@
-# Shodan-Dorks-for-Advanced-OSINT
-Shodan Dorks for Advanced OSINT
+# Shodan Dorks for Advanced OSINT
 
+A curated, defensive reference for Shodan search syntax, filters, and OSINT workflows focused on authorized asset discovery, exposure auditing, service identification, and Internet-facing attack-surface awareness.
 
+> **Scope:** Use this repository only on systems you own, administer, or are explicitly authorized to assess. Shodan indexes public Internet telemetry; public visibility does not imply permission to access or test a system.
 
-# About Me
+## Why this project exists
 
-Hello! I’m **Ch312 C3uZ**, widely recognized as **H4ckd4d** or **Mestre Bond**, the "Bond of Brazil." My journey as an ethical hacker and cybersecurity specialist spans decades, during which I’ve honed my skills in infiltrating networks, dismantling criminal enterprises, and protecting vulnerable populations. My passion lies in leveraging technology to make the world a safer place, focusing on humanitarian efforts and cutting-edge solutions.
+Shodan queries are most useful when they are precise, reproducible, and grounded in documented filters. This repository separates:
 
-I have led missions to unmask child predators, disrupt human trafficking networks, and expose corruption at the highest levels of government. Through innovative strategies and an unwavering sense of duty, I’ve collaborated with international agencies and local organizations to bring about meaningful change.
+- **Official Shodan filters** — fields accepted by the Shodan search engine.
+- **Banner search terms** — free-text terms searched in collected service banners.
+- **Defensive workflows** — practical ways to inventory and review authorized Internet-facing assets.
 
----
+## Quick start
 
-## My Key Contributions
+Shodan filters use the form:
 
-### **1. Advanced Cybersecurity Expertise**
-- **Over 30 Years of Experience**: Pioneering digital forensics, penetration testing, and counter-cybercrime techniques.
-- **Dark Web Operations**: Creator of proprietary systems to track and analyze criminal activities online.
-- **Cyber Defense Advocacy**: Collaborated with Interpol, national security agencies, and law enforcement globally.
+```text
+filter:value
+```
 
-### **2. Technological Innovation**
-- **AI-Driven Systems**: Developed tools to identify high-risk zones for child trafficking and exploitation.
-- **Real-Time Threat Analysis**: Introduced geolocation and behavior-tracking technologies to predict and mitigate risks.
-- **Community-Oriented Tech**: Created safety applications designed to empower families and protect children.
+Examples:
 
-### **3. Humanitarian Projects**
-- **Child Protection Initiatives**: Founder of global programs to fight human trafficking and exploitation.
-- **Educational Outreach**: Conducted workshops for families, educators, and organizations to promote online safety.
-- **Global Advocacy**: Partnered with NGOs and governments to amplify awareness and drive change.
+```text
+org:"Example Organization"
+net:"203.0.113.0/24"
+port:443 country:US
+product:"nginx" org:"Example Organization"
+http.title:"Example Portal" org:"Example Organization"
+has_ssl:true org:"Example Organization"
+```
 
-### **4. Strategic Operations**
-- **Corruption Exposure**: Key player in revealing fraud and embezzlement networks tied to high-profile figures.
-- **Covert Missions**: Successfully infiltrated organized crime syndicates using a mix of technical and field expertise.
-- **Global Impact**: Instrumental in dismantling trafficking networks across multiple continents.
+Combine filters to reduce noise:
 
----
+```text
+org:"Example Organization" port:443 has_ssl:true
+```
 
-## My Vision
+For CLI searches containing quotes, wrap the full query in an additional pair of shell quotes:
 
-I believe that **knowledge and collaboration** are the most powerful tools for solving complex global issues. My mission is to bring together ethical hackers, developers, and activists to stand against injustice, protect the innocent, and push the boundaries of innovation in cybersecurity.
+```bash
+shodan search 'org:"Example Organization" port:443'
+```
 
----
+## Repository map
 
-## How You Can Join the Mission
+### Documentation
 
-Let’s work together to create impactful solutions for a better, safer world. Whether you’re a tech enthusiast, a seasoned developer, or a passionate advocate, there’s a place for you in this fight.
+- [`docs/getting-started.md`](docs/getting-started.md) — search fundamentals and safe workflow.
+- [`docs/filters-reference.md`](docs/filters-reference.md) — curated official filter reference.
+- [`docs/osint-methodology.md`](docs/osint-methodology.md) — repeatable defensive OSINT methodology.
 
-### **Ways to Collaborate**
-- **Code**: Contribute to open-source projects focused on safety and security.
-- **Educate**: Spread the word about online safety and responsible digital practices.
-- **Support**: Advocate for humanitarian causes and amplify the voices of those in need.
+### Query collections
 
----
+- [`dorks/network.md`](dorks/network.md) — network, ASN, geography, service, and product filters.
+- [`dorks/web.md`](dorks/web.md) — HTTP metadata and web-technology discovery.
+- [`dorks/ssl-tls.md`](dorks/ssl-tls.md) — certificate and TLS-focused searches.
 
-## Hacker Slogan
+### Defensive examples
 
-**"No predator is safe, no trafficker can hide. We will find you, and the innocent will be saved. This is my promise!"**
+- [`examples/asset-discovery.md`](examples/asset-discovery.md) — authorized asset-discovery workflow.
 
----
+## Core filter families
 
-Thank you for your support and collaboration. Let’s make the world a safer place together!
+| Category | Useful filters |
+| --- | --- |
+| Network | `ip`, `net`, `asn`, `port`, `hostname` |
+| Ownership / location | `org`, `isp`, `country`, `city`, `region`, `state` |
+| Service | `product`, `version`, `os`, `cpe` |
+| HTTP | `http.title`, `http.status`, `http.component`, `http.component_category`, `http.waf` |
+| TLS / SSL | `has_ssl`, `ssl`, `ssl.version`, `ssl.cert.subject.cn`, `ssl.cert.issuer.cn`, `ssl.cert.fingerprint`, `ssl.jarm`, `ssl.ja3s` |
+| Screenshots | `has_screenshot`, `screenshot.label` |
+| SSH | `ssh.fingerprint` |
+| Exposure metadata | `tag`, `vuln`, `has_vuln` |
 
+The authoritative filter set can change. Shodan exposes the current list programmatically through `/shodan/host/search/filters`.
 
+## Important distinction: filters vs. banner text
 
+A string that appears in a Shodan banner is not automatically a valid search filter. For example, vendor, protocol, product, or industrial metadata may be searchable as banner text or represented through another documented field. This project does not label undocumented field names as official filters.
 
+## Validation policy
 
+Before adding a new filter to this repository:
 
+1. Confirm it in the official Shodan filter reference or API.
+2. Verify the expected value format.
+3. Prefer examples scoped to owned or explicitly authorized assets.
+4. Document plan/API limitations when known.
+5. Add the validation date to significant reference updates.
 
+**Reference validation:** August 23, 2026.
 
+## Official references
 
+- Shodan Help Center — Search Query Fundamentals: https://help.shodan.io/the-basics/search-query-fundamentals
+- Shodan Developer API: https://developer.shodan.io/api
+- Shodan filter reference: https://trends.shodan.io/search/filters
+- Shodan Datapedia: https://datapedia.shodan.io/
 
-Shodan is a powerful search engine for discovering devices connected to the internet. Below is a categorized list of Shodan dorks, ranging from basic to complex, to help you explore its full potential. This guide is structured to provide clear, actionable examples.
+## Contributing
 
-## Basic Queries
+Corrections and additions are welcome. Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting changes.
 
-| **Syntax**       | **Example**              | **Description**                                                 |
-|-------------------|--------------------------|-----------------------------------------------------------------|
-| `ip`             | `ip:"192.168.1.1"`       | Search for a specific IPv4 address.                            |
-| `port`           | `port:80`                | Find devices running on a specific port.                       |
-| `hostname`       | `hostname:"example.com"` | Query devices by hostname.                                     |
-| `country`        | `country:"US"`           | Search devices located in a specific country.                  |
-| `city`           | `city:"San Francisco"`   | Search devices in a specific city.                             |
+## Security and responsible use
 
----
+See [`SECURITY.md`](SECURITY.md).
 
-## Intermediate Queries
+## Author
 
-| **Syntax**       | **Example**                    | **Description**                                                   |
-|-------------------|--------------------------------|-------------------------------------------------------------------|
-| `org`            | `org:"Google"`                | Find devices belonging to a specific organization.               |
-| `asn`            | `asn:"AS12345"`               | Query devices by Autonomous System Number (ASN).                 |
-| `os`             | `os:"Windows"`                | Search for devices running a specific operating system.           |
-| `before`         | `before:"2023-01-01"`         | Filter results updated before a specific date.                   |
-| `after`          | `after:"2022-12-31"`          | Filter results updated after a specific date.                    |
+Maintained by **H4ckD4d**.
 
----
-
-## Complex Queries
-
-| **Syntax**             | **Example**                                        | **Description**                                                 |
-|-------------------------|----------------------------------------------------|-----------------------------------------------------------------|
-| `product`              | `product:"Apache httpd"`                           | Search for specific software or products on devices.           |
-| `ssl`                  | `ssl:"Let's Encrypt"`                              | Find devices using a specific SSL certificate.                 |
-| `http.title`           | `http.title:"Login"`                               | Query devices by the title of their HTTP pages.                |
-| `vuln`                 | `vuln:"CVE-2023-XXXX"`                             | Search for devices with a specific vulnerability.              |
-| `net`                  | `net:"192.168.0.0/16"`                             | Filter results by a network range in CIDR format.              |
-
----
-
-## Advanced Filters and Search Combinations
-
-| **Syntax**             | **Example**                                        | **Description**                                                 |
-|-------------------------|----------------------------------------------------|-----------------------------------------------------------------|
-| `http.html`            | `http.html:"admin"`                                | Search for keywords in the HTML body of HTTP pages.            |
-| `has_screenshot`       | `has_screenshot:true`                              | Filter results to show devices with screenshots.               |
-| `device`               | `device:"router"`                                  | Find specific device types (e.g., router, webcam).             |
-| `tags`                 | `tags:"industrial-control"`                        | Filter results by tags assigned to devices.                    |
-| `geo`                  | `geo:37.7749,-122.4194`                            | Search devices by specific geographic coordinates.             |
-
----
-
-## Industrial Control Systems (ICS)
-
-| **Syntax**             | **Example**                                        | **Description**                                                 |
-|-------------------------|----------------------------------------------------|-----------------------------------------------------------------|
-| `ics.vendor`           | `ics.vendor:"Siemens"`                             | Query ICS devices by vendor.                                   |
-| `ics.product`          | `ics.product:"SCADA"`                              | Search for specific ICS products or software.                  |
-| `ics.version`          | `ics.version:"2.1.0"`                              | Find ICS devices running a specific version.                   |
-| `modbus.function`      | `modbus.function:"03"`                             | Query devices by Modbus function codes.                        |
-| `bacnet.device`        | `bacnet.device:"HVAC"`                             | Find devices using BACnet protocols for HVAC systems.          |
-
----
-
-## IoT-Specific Queries
-
-| **Syntax**             | **Example**                                        | **Description**                                                 |
-|-------------------------|----------------------------------------------------|-----------------------------------------------------------------|
-| `iot`                  | `iot:"smart-camera"`                               | Search for Internet of Things (IoT) devices by type.           |
-| `manufacturer`         | `manufacturer:"Philips"`                           | Query IoT devices by manufacturer.                             |
-| `firmware`             | `firmware:"1.0.2"`                                 | Find IoT devices by firmware version.                          |
-| `is_public`            | `is_public:true`                                   | Filter devices with public IPs.                                |
-| `is_upnp`              | `is_upnp:true`                                     | Filter devices using Universal Plug and Play (UPnP).           |
-
----
-
-## Useful Shodan Tags
-
-| **Tag**                | **Description**                                    |
-|-------------------------|----------------------------------------------------|
-| `ics`                  | Devices related to industrial control systems.     |
-| `vulnerable`           | Devices with known vulnerabilities.                |
-| `webcam`               | Publicly accessible webcams.                       |
-| `database`             | Exposed databases like MongoDB or Elasticsearch.   |
-| `honeypot`             | Devices identified as honeypots.                   |
-
----
-
-## Search Tips
-
-- Combine multiple filters for more precise results:
-  ```sh
-  port:22 country:"US" org:"Amazon"
-
-
-
-
+Cybersecurity · OSINT · Threat Intelligence · Defensive Security
