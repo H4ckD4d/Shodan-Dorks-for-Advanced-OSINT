@@ -1,12 +1,12 @@
 # Shodan Dorks for Advanced OSINT
 
-[![Documentation Quality](https://github.com/H4ckD4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/docs-quality.yml/badge.svg)](https://github.com/H4ckD4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/docs-quality.yml)
-[![Shodan Filter Validation](https://github.com/H4ckD4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/filter-validation.yml/badge.svg)](https://github.com/H4ckD4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/filter-validation.yml)
+[![Documentation Quality](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/docs-quality.yml/badge.svg)](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/docs-quality.yml)
+[![Shodan Filter Validation](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/filter-validation.yml/badge.svg)](https://github.com/h4ckd4d/Shodan-Dorks-for-Advanced-OSINT/actions/workflows/filter-validation.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/status-1.0.0--rc.1-blue.svg)](CHANGELOG.md)
 
-> **Project owner and maintainer:** **H4ckD4d**  
-> Original project by **H4ckD4d**. Please preserve project attribution when redistributing or adapting this repository.
+> **Project owner and maintainer:** **h4ckd4d**  
+> Original project by **h4ckd4d**. Please preserve project attribution when redistributing or adapting this repository.
 
 A curated, defensive reference for Shodan search syntax, filters, and OSINT workflows focused on authorized asset discovery, exposure auditing, service identification, and Internet-facing attack-surface awareness.
 
@@ -16,7 +16,7 @@ A curated, defensive reference for Shodan search syntax, filters, and OSINT work
 
 **Current milestone:** `1.0.0-rc.1`  
 **Reference validation:** August 23, 2026  
-**Owner:** H4ckD4d
+**Owner:** h4ckd4d
 
 See [`CHANGELOG.md`](CHANGELOG.md) for release history and [`catalog/index.json`](catalog/index.json) for the machine-readable project catalog.
 
@@ -59,6 +59,22 @@ For CLI searches containing quotes, wrap the full query in an additional pair of
 shodan search 'org:"Example Organization" port:443'
 ```
 
+## Project owner profile
+
+**h4ckd4d** is the original creator, project owner, and primary maintainer of **Shodan Dorks for Advanced OSINT**.
+
+Professional and technical focus includes:
+
+- Cybersecurity, cyber intelligence, OSINT, Red Team methodologies, vulnerability management, and attack-surface mapping.
+- Network and systems infrastructure, including Linux/Windows servers, virtualization, VPNs, VLANs, firewalls, Wi-Fi, fiber, NAS, backup, VoIP, hardening, and monitoring.
+- Security architecture and risk practices including incident response, business impact analysis, continuity/disaster recovery, least privilege, and Zero Trust.
+- Security frameworks and methodologies including NIST Cybersecurity Framework, CIS Controls, ISO/IEC 27001, ISO 31000, ISO 22301, MITRE ATT&CK, and OWASP-oriented security practices.
+- Automation and OT/IT integration, including PLC/controller environments, telemetry, industrial automation, and infrastructure monitoring.
+- Engineering and tooling with Docker, APIs, Linux-based labs, automation platforms, and AI-assisted technical workflows.
+- Technical training spanning electrical/electronics, industrial automation and controls, LOTO, and safety/compliance disciplines.
+
+See [`AUTHOR.md`](AUTHOR.md) for the expanded professional profile.
+
 ## Repository map
 
 ### Documentation
@@ -69,6 +85,7 @@ shodan search 'org:"Example Organization" port:443'
 - [`docs/cli-api.md`](docs/cli-api.md) — CLI/API usage for authorized inventory and validation.
 - [`CHEATSHEET.md`](CHEATSHEET.md) — compact quick-reference sheet.
 - [`CHANGELOG.md`](CHANGELOG.md) — version history and release milestones.
+- [`AUTHOR.md`](AUTHOR.md) — project owner profile, skills, and technical focus.
 
 ### Query collections
 
@@ -133,7 +150,7 @@ Before adding a new filter to this repository:
 
 ## Ownership and credits
 
-**H4ckD4d** is the original creator, project owner, and primary maintainer of **Shodan Dorks for Advanced OSINT**.
+**h4ckd4d** is the original creator, project owner, and primary maintainer of **Shodan Dorks for Advanced OSINT**.
 
 See [`CREDITS.md`](CREDITS.md) for project attribution and contributor-credit conventions.
 
@@ -151,5 +168,5 @@ Released under the MIT License. See [`LICENSE`](LICENSE). The license preserves 
 
 ---
 
-**Shodan Dorks for Advanced OSINT** — created and maintained by **H4ckD4d**.  
+**Shodan Dorks for Advanced OSINT** — created and maintained by **h4ckd4d**.  
 Cybersecurity · OSINT · Threat Intelligence · Defensive Security
