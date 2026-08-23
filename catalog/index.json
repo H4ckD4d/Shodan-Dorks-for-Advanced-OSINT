@@ -1,8 +1,8 @@
 {
   "project": "Shodan Dorks for Advanced OSINT",
-  "owner": "H4ckD4d",
-  "original_creator": "H4ckD4d",
-  "primary_maintainer": "H4ckD4d",
+  "owner": "h4ckd4d",
+  "original_creator": "h4ckd4d",
+  "primary_maintainer": "h4ckd4d",
   "status": "1.0.0-rc.1",
   "validation_date": "2026-08-23",
   "scope": "Defensive and authorized OSINT reference",
@@ -20,7 +20,8 @@
     {"id":"getting-started","path":"docs/getting-started.md"},
     {"id":"filters","path":"docs/filters-reference.md"},
     {"id":"methodology","path":"docs/osint-methodology.md"},
-    {"id":"cli-api","path":"docs/cli-api.md"}
+    {"id":"cli-api","path":"docs/cli-api.md"},
+    {"id":"author","path":"AUTHOR.md"}
   ],
   "references": {
     "shodan_api": "https://developer.shodan.io/api",
