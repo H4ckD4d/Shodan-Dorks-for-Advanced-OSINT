@@ -2,9 +2,11 @@
 
 ## Project ownership
 
-**Shodan Dorks for Advanced OSINT** was created by **H4ckD4d**, who is the original author, project owner, and primary maintainer.
+**Shodan Dorks for Advanced OSINT** was created by **h4ckd4d**, who is the original author, project owner, and primary maintainer.
 
-Project: `H4ckD4d/Shodan-Dorks-for-Advanced-OSINT`
+Project: `h4ckd4d/Shodan-Dorks-for-Advanced-OSINT`
+
+See [`AUTHOR.md`](AUTHOR.md) for the project owner's professional and technical profile.
 
 ## Attribution
 
@@ -12,7 +14,7 @@ When redistributing substantial portions of the project, preserve the copyright 
 
 Recommended attribution:
 
-> Based on Shodan Dorks for Advanced OSINT, created by H4ckD4d.
+> Based on Shodan Dorks for Advanced OSINT, created by h4ckd4d.
 
 ## Contributors
 
@@ -24,4 +26,4 @@ Technical references are periodically reviewed against official Shodan documenta
 
 ---
 
-**Original creator and project owner: H4ckD4d**
+**Original creator and project owner: h4ckd4d**
