@@ -44,6 +44,7 @@ jobs:
           cases = [
               ('schemas/scope.schema.json', 'examples/authorized-scope.json'),
               ('schemas/baseline.schema.json', 'examples/expected-baseline.json'),
+              ('schemas/finding.schema.json', 'examples/example-finding.json'),
           ]
           for schema_path, data_path in cases:
               schema = json.loads((root / schema_path).read_text())
