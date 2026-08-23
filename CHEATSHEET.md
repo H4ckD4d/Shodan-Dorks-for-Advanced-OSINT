@@ -1,7 +1,7 @@
 # Shodan Defensive OSINT Cheatsheet
 
-> **Project owner:** H4ckD4d  
-> Part of **Shodan Dorks for Advanced OSINT**, created and maintained by **H4ckD4d**.
+> **Project owner:** h4ckd4d  
+> Part of **Shodan Dorks for Advanced OSINT**, created and maintained by **h4ckd4d**.
 
 Use only for assets you own, administer, or are explicitly authorized to assess.
 
@@ -102,4 +102,4 @@ Reference reviewed: **August 23, 2026**.
 
 ---
 
-**Original creator and project owner: H4ckD4d**
+**Original creator and project owner: h4ckd4d**
