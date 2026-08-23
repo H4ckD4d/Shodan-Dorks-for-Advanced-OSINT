@@ -1,8 +1,8 @@
 # Contributing
 
-> **Project owner and original creator:** **H4ckD4d**
+> **Project owner and original creator:** **h4ckd4d**
 
-Thanks for helping improve this Shodan OSINT reference. Contributions are welcome, while project ownership and primary maintenance remain with **H4ckD4d**.
+Thanks for helping improve this Shodan OSINT reference. Contributions are welcome, while project ownership and primary maintenance remain with **h4ckd4d**.
 
 ## Contribution principles
 
@@ -64,4 +64,4 @@ Accepted contributions are credited through Git history and pull requests. See [
 
 ---
 
-**Shodan Dorks for Advanced OSINT — original project by H4ckD4d.**
+**Shodan Dorks for Advanced OSINT — original project by h4ckd4d.**
