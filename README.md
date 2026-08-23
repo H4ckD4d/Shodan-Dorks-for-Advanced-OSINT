@@ -15,7 +15,7 @@ The project has evolved beyond a list of search queries. It now provides a struc
 
 > **Authorized use only:** Use this project only for systems you own, administer, or are explicitly authorized to assess. Public visibility does not grant permission to access, authenticate to, modify, exploit, disrupt, or test a third-party system.
 
-## Protect. Detect. Defend.
+## Protect · Detect · Defend
 
 Project h4ckd4d combines technical cybersecurity engineering with a broader public-interest mission: using technology, OSINT, threat intelligence, and responsible digital-investigation methods to help protect people — especially children and families — from digital threats.
 
