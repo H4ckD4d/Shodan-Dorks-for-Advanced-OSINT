@@ -1,6 +1,8 @@
 # Contributing
 
-Thanks for helping improve this Shodan OSINT reference.
+> **Project owner and original creator:** **H4ckD4d**
+
+Thanks for helping improve this Shodan OSINT reference. Contributions are welcome, while project ownership and primary maintenance remain with **H4ckD4d**.
 
 ## Contribution principles
 
@@ -57,3 +59,9 @@ Suggested prefixes:
 ## Pull requests
 
 Keep pull requests focused. Explain what changed, why it changed, and how the syntax was validated.
+
+Accepted contributions are credited through Git history and pull requests. See [`CREDITS.md`](CREDITS.md) for attribution conventions.
+
+---
+
+**Shodan Dorks for Advanced OSINT — original project by H4ckD4d.**
